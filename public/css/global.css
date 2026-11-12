@@ -1,0 +1,239 @@
+/* TIPOGRAFIA */
+
+@import url('https://fonts.googleapis.com/css2?family=Redaction+10:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Redaction+10:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+/* PALETA DE CORES DA IDENTIDADE VISUAL */
+
+  /* ==============================
+     1. CORES DA MARCA
+  ============================== */
+    --primaria: #010E16;
+    --primaria-hover: rgb(233, 255, 242);
+
+  /* ==============================
+     2. CORES DE FUNDO
+  ============================== */
+
+    --fundo-primario: #F1E6CC;
+    --fundo-secundario: #010E16;
+
+  /* ==============================
+     3. CORES DE ELEMENTOS
+  ============================== */
+  
+    --elem-primaria: #ffffff;
+    --elem-primaria-hover: #e3e9f7;
+    --elem-secundaria: #1C2B40;
+    --elem-secundaria-hover: #18242c;
+    --cinza: gray;
+    --preto: black;
+
+  /* ==============================
+     4. CORES DE TEXTOS
+  ============================== */
+
+    --titulo-primaria-dark: #010E16;
+    --titulo-primaria-light: #D9B27D;
+    --titulo-secundaria: #FEFAE6;
+    --titulo-secundaria-hover: #D9B27D;
+    --descricao-primaria: rgb(15, 50, 27);
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--fundo-primario);
+}
+
+main {
+    padding: 20px;
+
+}
+
+/* -----------------------
+|  INÍCIO DO MENU LATERAL  |
+--------------------------*/
+
+#menu_lateral {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--fundo-secundario);
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: relative;
+}
+
+#menu_conteudo {
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#logo_nome {
+    padding: 12px;
+    font-size: 0px;
+}
+#usuario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+#usuario_infos {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#usuario_infos span:last-child{
+    color: var(--cinza);
+    font-size: 12px;
+}
+
+#usuario_avatar {
+    width:50px;
+    height:50px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+#menu_itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.menu-item {
+    border-radius: 20px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.menu-item.active {
+    background-color: var(--elem-secundaria-hover);
+}
+
+.menu-item.active a,
+.menu-item.active span {
+    color: var(--titulo-secundaria-hover);
+}
+
+.menu-item:hover:not(.active),
+#botao_logout:hover {
+    background-color: var(--elem-secundaria-hover);
+}
+
+
+.menu-item a i {
+    display: flex;
+    align-items: center;
+
+    width: 10px;
+    height: 10px;
+}
+
+.menu-item i {
+    width: 50px;
+    height: 50px;
+}
+.menu-item a {
+    text-decoration: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: start; /* faz os itens do menu se alnharem a esquerda */
+    color:var(--titulo-secundaria);
+
+}
+
+#logout {
+    border-top: 1px solid var(--elem-primaria-hover);
+    padding: 12px;
+}
+
+#botao_logout {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 20px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+
+    
+
+}
+
+#botao_logout, #botao_logout a {
+    text-decoration: none;
+    color: inherit /* Herda a cor do botão */;
+
+}
+
+#botao_logout i {
+    color: var(--fundo-primario);
+    margin-right: 10px;
+}
+
+#botao_abrir {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color:var(--primaria);
+    color: var(--elem-primaria-hover);
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.item-descricao {
+    font-size: 14px;
+    color:var(--titulo-secundaria);
+}
+
+#titulo_explorar {
+    padding: 30px;
+    font-weight: 700px;
+    font-style: bold;
+    color:var(--titulo-secundaria);
+    align-items: start;
+    justify-content: start;
+    font-weight: 100px;
+    font-size:20px;
+}
+
+/* ABRIR OU FECHAR MENU LATERAL
+.item-descricao {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    gap: 14px;
+} */
+
+#menu_lateral.open-menu_lateral {
+    min-width: 15%;
+}
+
+/* -----------------------
+|  FINAL DO MENU LATERAL  |
+--------------------------*/
