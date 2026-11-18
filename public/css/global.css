@@ -256,3 +256,52 @@ main {
 .secao {
     margin-bottom: 44px;
 }
+
+/* -----------------------------
+|  CELULAR (até 768px)           |
+--------------------------------*/
+
+@media (max-width: 768px) {
+
+    /* Menu lateral fica compacto, só com os ícones, para sobrar espaço para a linha do tempo */
+    #menu_lateral {
+        width: 64px;
+    }
+
+    #menu_conteudo {
+        padding: 10px 6px;
+        margin: 0;
+    }
+
+    #logo_nome,
+    #usuario_infos,
+    .item-descricao {
+        display: none;
+    }
+
+    #usuario {
+        justify-content: center;
+    }
+
+    #usuario_avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-item {
+        padding: 12px 6px;
+    }
+
+    .menu-item a {
+        justify-content: center;
+    }
+
+    #logout {
+        padding: 6px;
+    }
+
+    main {
+        margin-left: 64px;
+        padding: 10px;
+    }
+}
