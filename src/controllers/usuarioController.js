@@ -64,16 +64,28 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (nome.trim().length < 3) {
+        // repete no servidor as regras do front-end, caso alguém chame a rota direto
+        res.status(400).send("O nome precisa ter 3 ou mais caracteres.");
+    } else if (email.trim().indexOf("@") == -1) {
+        res.status(400).send("Digite um e-mail válido, com @.");
+    } else if (senha.length < 8) {
+        res.status(400).send("A senha precisa ter no mínimo 8 caracteres.");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome.trim(), email.trim().toLowerCase(), senha)
             .then(
                 function (resultado) {
-                    res.json(resultado);
+                    res.status(201).json(resultado);
                 }
             ).catch(
                 function (erro) {
+                    // ER_DUP_ENTRY: o e-mail já existe (coluna email é UNIQUE no banco)
+                    if (erro.code == "ER_DUP_ENTRY") {
+                        res.status(409).send("Este e-mail já está cadastrado. Faça login para entrar.");
+                        return;
+                    }
                     console.log(erro);
                     console.log(
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
