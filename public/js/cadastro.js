@@ -224,11 +224,85 @@ function alternarSenha(idInput, botao) {
     }
 }
 
+// ---------- CARREGAMENTO (evita clique duplo) ----------
+
+var cadastroEmAndamento = false;
+
+function iniciarCarregamento() {
+    var botao = document.getElementById("botao_cadastrar");
+    cadastroEmAndamento = true;
+    botao.disabled = true;
+    botao.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cadastrando...';
+}
+
+function finalizarCarregamento() {
+    var botao = document.getElementById("botao_cadastrar");
+    cadastroEmAndamento = false;
+    botao.disabled = false;
+    botao.innerHTML = "Cadastrar";
+}
+
+// ---------- INTEGRAÇÃO COM A API ----------
+
+function enviarCadastro(nome, email, senha) {
+    iniciarCarregamento();
+
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // os nomes abaixo são os mesmos lidos em usuarioController.cadastrar
+            nomeServer: nome,
+            emailServer: email,
+            senhaServer: senha
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                mostrarMensagemFormulario("Cadastro realizado com sucesso! Redirecionando para o login...", "sucesso");
+                document.getElementById("botao_cadastrar").innerHTML = '<i class="fa-solid fa-circle-check"></i> Cadastrado';
+
+                // o botão continua desabilitado até o redirecionamento
+                setTimeout(function () {
+                    window.location.href = "login.html";
+                }, 2000);
+            } else if (resposta.status == 409) {
+                // e-mail duplicado (coluna UNIQUE no banco)
+                mostrarErroCampo("input_email", "erro_email", "Este e-mail já está cadastrado.");
+                mostrarMensagemFormulario('Este e-mail já está cadastrado. <a href="login.html">Faça login</a> para entrar.', "erro");
+                finalizarCarregamento();
+            } else if (resposta.status == 400) {
+                // dado recusado pela validação do servidor
+                resposta.text().then(function (texto) {
+                    mostrarMensagemFormulario(texto, "erro");
+                });
+                finalizarCarregamento();
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro! Status: " + resposta.status;
+            }
+        })
+        .catch(function (erro) {
+            // API fora do ar ou erro no banco
+            console.log("#ERRO: " + erro);
+            mostrarMensagemFormulario("O sistema está indisponível. Atualize a página e tente novamente.", "erro");
+            finalizarCarregamento();
+        });
+}
+
 // ---------- BOTÃO CADASTRAR ----------
 
 // chamada pelo onsubmit do formulário (clique no botão ou tecla Enter).
 // retorna false para o navegador não recarregar a página
 function cadastrar() {
+    // ignora novos envios enquanto o anterior não terminou
+    if (cadastroEmAndamento == true) {
+        return false;
+    }
+
     // valido todos os campos (sem parar no primeiro) para mostrar todos os erros de uma vez
     var nomeValido = validarNome();
     var emailValido = validarEmail(true);
@@ -241,5 +315,11 @@ function cadastrar() {
     }
 
     mostrarMensagemFormulario("", "");
+
+    var nome = document.getElementById("input_nome").value.trim();
+    var email = document.getElementById("input_email").value.trim().toLowerCase();
+    var senha = document.getElementById("input_senha").value;
+
+    enviarCadastro(nome, email, senha);
     return false;
 }
