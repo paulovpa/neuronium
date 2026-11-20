@@ -159,6 +159,11 @@ function atualizarForcaSenha() {
         texto.innerHTML = "Senha forte";
         mostrarErroCampo("input_senha", "erro_senha", "");
     }
+
+    // se a confirmação já foi preenchida, valida de novo, pois a senha mudou
+    if (document.getElementById("input_confirmacao").value != "") {
+        validarConfirmacao(false);
+    }
 }
 
 // só permite o cadastro quando a senha for forte
@@ -177,19 +182,45 @@ function validarSenha() {
     }
 }
 
-function validarConfirmacao(exigirPreenchido) {
-    var confirmacao = document.getElementById("input_confirmacao").value;
+// ---------- CONFIRMAÇÃO DE SENHA ----------
 
-    if (confirmacao.trim() == "") {
+// chamada enquanto digita a confirmação (oninput), quando a senha muda e no clique em cadastrar
+function validarConfirmacao(exigirPreenchido) {
+    var senha = document.getElementById("input_senha").value;
+    var inputConfirmacao = document.getElementById("input_confirmacao");
+    var confirmacao = inputConfirmacao.value;
+
+    if (confirmacao == "") {
         if (exigirPreenchido == true) {
             mostrarErroCampo("input_confirmacao", "erro_confirmacao", "Confirme a sua senha.");
         } else {
             mostrarErroCampo("input_confirmacao", "erro_confirmacao", "");
         }
         return false;
+    } else if (confirmacao != senha) {
+        mostrarErroCampo("input_confirmacao", "erro_confirmacao", "As senhas não são iguais.");
+        return false;
     } else {
         mostrarErroCampo("input_confirmacao", "erro_confirmacao", "");
+        inputConfirmacao.classList.add("campo-valido");
         return true;
+    }
+}
+
+// ---------- BOTÃO DE OLHO ----------
+
+// alterna o campo entre "password" (escondido) e "text" (visível) e troca o ícone
+function alternarSenha(idInput, botao) {
+    var input = document.getElementById(idInput);
+
+    if (input.type == "password") {
+        input.type = "text";
+        botao.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        botao.setAttribute("aria-label", "Esconder senha");
+    } else {
+        input.type = "password";
+        botao.innerHTML = '<i class="fa-solid fa-eye"></i>';
+        botao.setAttribute("aria-label", "Mostrar senha");
     }
 }
 
