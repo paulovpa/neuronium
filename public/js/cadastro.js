@@ -73,11 +73,103 @@ function validarEmail(exigirPreenchido) {
 
 // ---------- SENHA ----------
 
+// classificação atual da senha: "vazia", "fraca", "media" ou "forte"
+var forcaSenhaAtual = "vazia";
+
+// vetores paralelos: id do item da lista e o texto que ele mostra
+var idsRequisitos = ["req_tamanho", "req_maiuscula", "req_numero", "req_especial"];
+var textosRequisitos = [
+    "No mínimo 8 caracteres",
+    "Uma letra maiúscula",
+    "Um número",
+    "Um caractere especial (!@#$...)"
+];
+
+// percorre a senha caractere por caractere (laço for) e devolve um vetor
+// com true/false para cada requisito, na mesma ordem de idsRequisitos
+function analisarSenha(senha) {
+    var temMaiuscula = false;
+    var temNumero = false;
+    var temEspecial = false;
+
+    for (var i = 0; i < senha.length; i++) {
+        var caractere = senha[i];
+
+        if (caractere >= "A" && caractere <= "Z") {
+            temMaiuscula = true;
+        } else if (caractere >= "0" && caractere <= "9") {
+            temNumero = true;
+        } else if (caractere == " ") {
+            // espaço não conta como caractere especial
+        } else if (caractere.toLowerCase() == caractere.toUpperCase()) {
+            // letras mudam entre maiúscula e minúscula; símbolos não mudam,
+            // então se ficou igual, é um caractere especial (!, @, #, ...)
+            temEspecial = true;
+        }
+    }
+
+    var temTamanho = senha.length >= 8;
+
+    return [temTamanho, temMaiuscula, temNumero, temEspecial];
+}
+
+// chamada a cada tecla digitada no campo senha (oninput)
+function atualizarForcaSenha() {
+    var senha = document.getElementById("input_senha").value;
+    var requisitos = analisarSenha(senha);
+    var quantidadeAtendida = 0;
+
+    // atualiza a lista de requisitos abaixo do campo
+    for (var i = 0; i < requisitos.length; i++) {
+        var item = document.getElementById(idsRequisitos[i]);
+
+        if (requisitos[i] == true) {
+            quantidadeAtendida++;
+            item.className = "requisito-ok";
+            item.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + textosRequisitos[i];
+        } else {
+            item.className = "";
+            item.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> ' + textosRequisitos[i];
+        }
+    }
+
+    // classificação: até 2 requisitos = fraca, 3 = média, 4 = forte
+    var barra = document.getElementById("barra_forca_preenchimento");
+    var texto = document.getElementById("texto_forca");
+
+    if (senha == "") {
+        forcaSenhaAtual = "vazia";
+        barra.className = "barra-forca-preenchimento";
+        texto.className = "texto-forca";
+        texto.innerHTML = "";
+    } else if (quantidadeAtendida <= 2) {
+        forcaSenhaAtual = "fraca";
+        barra.className = "barra-forca-preenchimento forca-fraca";
+        texto.className = "texto-forca forca-fraca";
+        texto.innerHTML = "Senha fraca";
+    } else if (quantidadeAtendida == 3) {
+        forcaSenhaAtual = "media";
+        barra.className = "barra-forca-preenchimento forca-media";
+        texto.className = "texto-forca forca-media";
+        texto.innerHTML = "Senha média";
+    } else {
+        forcaSenhaAtual = "forte";
+        barra.className = "barra-forca-preenchimento forca-forte";
+        texto.className = "texto-forca forca-forte";
+        texto.innerHTML = "Senha forte";
+        mostrarErroCampo("input_senha", "erro_senha", "");
+    }
+}
+
+// só permite o cadastro quando a senha for forte
 function validarSenha() {
     var senha = document.getElementById("input_senha").value;
 
     if (senha.trim() == "") {
         mostrarErroCampo("input_senha", "erro_senha", "Preencha a sua senha.");
+        return false;
+    } else if (forcaSenhaAtual != "forte") {
+        mostrarErroCampo("input_senha", "erro_senha", "A senha precisa ser forte para concluir o cadastro.");
         return false;
     } else {
         mostrarErroCampo("input_senha", "erro_senha", "");
