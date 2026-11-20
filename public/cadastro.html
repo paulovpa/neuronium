@@ -7,29 +7,82 @@
     <title>Neuronium | Cadastro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/autenticacao.css">
 </head>
 
 <body class="pagina-autenticacao">
 
+    <!-- header igual ao do index.html -->
+    <nav id="menu_principal">
+        <div id="menu_conteudo">
+            <div id="logo_nome">
+                <a href="index.html">
+                <h1>Neuronium</h1>
+                </a>
+            </div>
+
+            <ul id="menu_itens">
+                <li class="menu-item">
+                    <a href="index.html">
+                        <span class="item-descricao">
+                            Início
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="neuronium.html">
+                        <span class="item-descricao">
+                            O Neuronium
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="sobre.html">
+                        <span class="item-descricao">
+                            Sobre mim
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="menu_acesso">
+            <ul>
+                <li class="menu-item entrar">
+                    <a href="login.html">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span class="item-descricao">
+                            Entrar
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item cadastrar active">
+                    <a href="cadastro.html">
+                        <span class="item-descricao">
+                            Cadastrar
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
     <main class="autenticacao">
 
-        <a href="index.html" class="link-voltar">
-            <i class="fa-solid fa-arrow-left"></i>
-            Voltar ao início
-        </a>
-
-        <section class="card-autenticacao">
+        <section class="card-autenticacao card-cadastro">
 
             <div class="cabecalho-autenticacao">
-                <i class="fa-solid fa-wand-sparkles icone-tema"></i>
-                <h1>Neuronium</h1>
+                <h1><i class="fa-solid fa-wand-sparkles icone-tema"></i> Neuronium</h1>
                 <h2>Junte-se ao castelo</h2>
                 <p>Crie sua conta para começar a sua jornada.</p>
             </div>
 
             <!-- novalidate: as validações são feitas pelo script, com mensagens próprias -->
-            <form id="form_cadastro" class="formulario" onsubmit="return cadastrar()" novalidate>
+            <!-- formulario-duas-colunas: nome | e-mail e senha | confirmação, para caber na tela sem rolar -->
+            <form id="form_cadastro" class="formulario formulario-duas-colunas" onsubmit="return cadastrar()"
+                novalidate>
 
                 <div class="campo">
                     <label for="input_nome">Nome</label>
@@ -55,18 +108,6 @@
                             <i class="fa-solid fa-eye"></i>
                         </button>
                     </div>
-
-                    <div class="barra-forca">
-                        <div id="barra_forca_preenchimento" class="barra-forca-preenchimento"></div>
-                    </div>
-                    <span id="texto_forca" class="texto-forca" aria-live="polite"></span>
-
-                    <ul class="lista-requisitos">
-                        <li id="req_tamanho"><i class="fa-solid fa-circle-xmark"></i> No mínimo 8 caracteres</li>
-                        <li id="req_maiuscula"><i class="fa-solid fa-circle-xmark"></i> Uma letra maiúscula</li>
-                        <li id="req_numero"><i class="fa-solid fa-circle-xmark"></i> Um número</li>
-                        <li id="req_especial"><i class="fa-solid fa-circle-xmark"></i> Um caractere especial (!@#$...)</li>
-                    </ul>
                     <span id="erro_senha" class="mensagem-campo" aria-live="polite"></span>
                 </div>
 
@@ -83,9 +124,26 @@
                     <span id="erro_confirmacao" class="mensagem-campo" aria-live="polite"></span>
                 </div>
 
-                <button type="submit" id="botao_cadastrar" class="botao-dourado">Cadastrar</button>
+                <!-- força da senha: ocupa as duas colunas -->
+                <div class="bloco-forca largura-total">
+                    <div class="forca-topo">
+                        <div class="barra-forca">
+                            <div id="barra_forca_preenchimento" class="barra-forca-preenchimento"></div>
+                        </div>
+                        <span id="texto_forca" class="texto-forca" aria-live="polite"></span>
+                    </div>
 
-                <p id="mensagem_formulario" class="mensagem-formulario" role="alert"></p>
+                    <ul class="lista-requisitos">
+                        <li id="req_tamanho"><i class="fa-solid fa-circle-xmark"></i> No mínimo 8 caracteres</li>
+                        <li id="req_maiuscula"><i class="fa-solid fa-circle-xmark"></i> Uma letra maiúscula</li>
+                        <li id="req_numero"><i class="fa-solid fa-circle-xmark"></i> Um número</li>
+                        <li id="req_especial"><i class="fa-solid fa-circle-xmark"></i> Um caractere especial (!@#$...)</li>
+                    </ul>
+                </div>
+
+                <button type="submit" id="botao_cadastrar" class="botao-dourado largura-total">Cadastrar</button>
+
+                <p id="mensagem_formulario" class="mensagem-formulario largura-total" role="alert"></p>
             </form>
 
             <p class="troca-tela">
