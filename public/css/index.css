@@ -1,0 +1,195 @@
+/* -----------------------
+|  INÍCIO DO MENU HEADER  |
+--------------------------*/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 0px;
+}
+
+#menu_principal {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: var(--fundo-secundario);
+    height: 90px;
+    width: 100vw;
+    border-radius: 0px;
+    margin: 0px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+#menu_principal ul,
+#menu_principal nav,
+#menu_principal > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu_principal ul{
+    margin: 30px;
+}
+
+#menu_principal #menu_acesso {
+    position: absolute;
+    right: 300px;
+}
+#menu_conteudo {
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#logo_nome {
+    padding: 12px;
+    font-size: 12px;
+    position: absolute;
+    left: 300px;
+}
+
+#logo_nome h1 {
+    font-family: 'Redaction 10', Helvetica, sans-serif;
+    color: var(--titulo-primaria-light);
+    transition: color 0.4s ease-in-out;
+    cursor:pointer;
+}
+
+#logo_nome a {
+    text-decoration: none;
+}
+
+#logo_nome h1:hover {
+    color: rgb(204, 184, 162);
+}
+
+
+#menu_itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.menu-item {
+    border-radius: 20px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.menu-item.active {
+    background-color: var(--elem-secundaria-hover);
+}
+
+.menu-item.active a,
+.menu-item.active span {
+    color: var(--titulo-secundaria-hover);
+}
+
+.menu-item:hover:not(.active),
+#botao_logout:hover {
+    background-color: var(--elem-secundaria-hover);
+}
+
+
+.menu-item a i {
+    display: flex;
+    align-items: center;
+
+    width: 10px;
+    height: 10px;
+}
+
+.menu-item i {
+    width: 50px;
+    height: 50px;
+}
+.menu-item a {
+    text-decoration: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: start; /* faz os itens do menu se alnharem a esquerda */
+    color:var(--titulo-secundaria);
+
+}
+
+
+.item-descricao {
+    font-size: 14px;
+    color:var(--titulo-secundaria);
+}
+
+#titulo_explorar {
+    padding: 30px;
+    font-weight: 700px;
+    font-style: bold;
+    color:var(--titulo-secundaria);
+    align-items: start;
+    justify-content: start;
+    font-weight: 100px;
+    font-size:20px;
+}
+
+/* -----------------------
+|  FINAL DO MENU HEADER |
+--------------------------*/
+
+
+#banner secao {
+    width: 100%;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+#banner{
+    display: block;
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.banner {
+  border-radius: 24px;
+  padding: 40px;
+  color: var(--elem-secundaria);
+  width: 100vw;
+  margin-top: 50px;
+
+}
+
+.banner.secao h1,
+.banner.secao span {
+  font-family: 'Playfair Display', Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner.secao h1 {
+  margin-bottom: 30px;
+}
+
+.banner {
+  width:100%;
+}
+
+.banner p {
+  width: 30vw;
+}

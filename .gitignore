@@ -1,23 +1,10 @@
-# A linha abaixo determina que o diretório node_modules não será enviado ao repositório remoto
+# Dependências instaladas pelo npm (geradas com "npm install")
 node_modules
 package-lock.json
+
+# Materiais de apoio locais (não fazem parte do projeto)
 /DOCUMENTOS_DE_APOIO
-src
+
+# Variáveis de ambiente com credenciais do banco (use o .env.example como modelo)
 .env
 .env.dev
-public/js
-public/dashboard/cards.html
-public/dashboard/dashboard_script.html
-public/dashboard/edicao-aviso.html
-public/dashboard/mural.html
-public/cadastro.html
-public/login.html
-public/index.html
-public/simulador.html
-public/css/estilo.css
-public/css/dashboard.css
-/app.js
-/LICENSE
-/package.json
-
-.github
