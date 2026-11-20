@@ -37,6 +37,15 @@ function exibirNomeUsuario() {
     }
 }
 
+// chamada pelo botão Logout do menu lateral: apaga os dados de quem entrou
+function limparSessao() {
+    sessionStorage.removeItem("ID_USUARIO");
+    sessionStorage.removeItem("NOME_USUARIO");
+    sessionStorage.removeItem("EMAIL_USUARIO");
+
+    window.location.replace(CAMINHO_INDEX);
+}
+
 if (validarSessao() == true) {
     // espera o HTML carregar para conseguir encontrar os elementos
     document.addEventListener("DOMContentLoaded", exibirNomeUsuario);
