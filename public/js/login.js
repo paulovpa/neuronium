@@ -71,16 +71,88 @@ function validarCamposLogin() {
     return valido;
 }
 
+// ---------- CARREGAMENTO (evita clique duplo) ----------
+
+var loginEmAndamento = false;
+
+function iniciarCarregamento() {
+    var botao = document.getElementById("botao_entrar");
+    loginEmAndamento = true;
+    botao.disabled = true;
+    botao.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Entrando...';
+}
+
+function finalizarCarregamento() {
+    var botao = document.getElementById("botao_entrar");
+    loginEmAndamento = false;
+    botao.disabled = false;
+    botao.innerHTML = "Entrar";
+}
+
+// ---------- INTEGRAÇÃO COM A API ----------
+
+function enviarLogin(email, senha) {
+    iniciarCarregamento();
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // os nomes abaixo são os mesmos lidos em usuarioController.autenticar
+            emailServer: email,
+            senhaServer: senha
+        })
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                resposta.json().then(function (json) {
+                    // guarda quem entrou; js/sessao.js lê esses dados nas páginas internas
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+
+                    window.location.href = "inicio.html";
+                });
+            } else if (resposta.status == 403) {
+                // mensagem genérica: não revela se o erro foi no e-mail ou na senha
+                mostrarMensagemFormulario("E-mail ou senha incorretos.", "erro");
+                finalizarCarregamento();
+            } else {
+                throw "Houve um erro ao tentar realizar o login! Status: " + resposta.status;
+            }
+        })
+        .catch(function (erro) {
+            // API fora do ar ou erro no banco
+            console.log("#ERRO: " + erro);
+            mostrarMensagemFormulario("O sistema está indisponível. Atualize a página e tente novamente.", "erro");
+            finalizarCarregamento();
+        });
+}
+
 // ---------- BOTÃO ENTRAR ----------
 
 // chamada pelo onsubmit do formulário (clique no botão ou tecla Enter).
 // retorna false para o navegador não recarregar a página
 function entrar() {
+    // ignora novos envios enquanto o anterior não terminou
+    if (loginEmAndamento == true) {
+        return false;
+    }
+
     if (validarCamposLogin() == false) {
         mostrarMensagemFormulario("", "");
         return false;
     }
 
     mostrarMensagemFormulario("", "");
+
+    var email = document.getElementById("input_email").value.trim().toLowerCase();
+    var senha = document.getElementById("input_senha").value;
+
+    enviarLogin(email, senha);
     return false;
 }
