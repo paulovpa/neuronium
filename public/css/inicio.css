@@ -528,3 +528,18 @@ main.inicio {
     border: 2px dashed rgba(217, 178, 125, 0.45);
     border-bottom: none;
 }
+
+/* -----------------------------
+|  RODAPÉ                        |
+--------------------------------*/
+
+.rodape {
+    padding: 24px var(--respiro-inicio) 32px;
+    text-align: center;
+}
+
+/* texto escuro sobre o fundo bege, discreto mas legível */
+.rodape p {
+    font-size: 14px;
+    color: var(--elem-secundaria);
+}
