@@ -564,3 +564,89 @@ html {
         scroll-behavior: auto;
     }
 }
+
+/* -----------------------------
+|  TABLET (até 1024px)           |
+--------------------------------*/
+
+@media (max-width: 1024px) {
+
+    /* o painel de apoio desce para baixo do texto */
+    .duas-colunas {
+        grid-template-columns: 1fr;
+    }
+
+    /* os cards de feitiço ficam um embaixo do outro, para o texto não ficar espremido */
+    .grade-feiticos {
+        grid-template-columns: 1fr;
+    }
+
+    .planta-palacio {
+        max-width: 420px;
+    }
+}
+
+/* -----------------------------
+|  CELULAR (até 768px)           |
+--------------------------------*/
+
+@media (max-width: 768px) {
+    :root {
+        --respiro-inicio: 10px;
+        --arredondamento-painel: 18px;
+    }
+
+    .secao-tela {
+        padding: 40px 20px;
+    }
+
+    .grade-neuro {
+        grid-template-columns: 1fr;
+    }
+
+    .card-neuro,
+    .card-feitico,
+    .painel-temas {
+        padding: 24px;
+    }
+
+    /* botões com a largura toda, mais fáceis de tocar com o dedo */
+    .botao {
+        align-self: stretch;
+        justify-content: center;
+    }
+
+    /* a linha do tempo fica vertical: a linha dourada passa à esquerda dos marcos */
+    .mini-linha-tempo {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .mini-linha-tempo::before {
+        top: 10px;
+        bottom: 10px;
+        left: 8px;
+        right: auto;
+        width: 4px;
+        height: auto;
+    }
+
+    .mini-evento {
+        padding-left: 40px;
+    }
+
+    .mini-pomo {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .mini-ano {
+        margin-top: 0;
+    }
+
+    .duelo-carta {
+        padding: 16px 8px;
+        font-size: 14px;
+    }
+}
