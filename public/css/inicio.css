@@ -247,3 +247,67 @@ main.inicio {
     font-size: 13px;
     font-weight: 600;
 }
+
+/* -----------------------------
+|  SEÇÃO 4: MINHA JORNADA        |
+--------------------------------*/
+
+/* os 4 marcos ficam lado a lado, cada um numa coluna */
+.mini-linha-tempo {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 24px 0 16px;
+    list-style: none;
+}
+
+/* a linha dourada horizontal passa pelo centro dos pomos (pomo de 20px: centro em 10px) */
+.mini-linha-tempo::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    right: 10px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--grad-ouro);
+}
+
+.mini-evento {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* o mesmo pomo dourado da minha_jornada.html, em tamanho menor */
+.mini-pomo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFF1C9 0%, #E3C08D 55%, #A97A3C 100%);
+    box-shadow: 0 0 10px 3px rgba(227, 192, 141, 0.5);
+    z-index: 1;
+}
+
+.mini-ano {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--titulo-primaria-light);
+}
+
+/* o título do marco num card pequeno, igual aos cards da jornada */
+.mini-evento h3 {
+    padding: 20px;
+    border-radius: 16px;
+    background-color: #1C2B40;
+    box-shadow: 0 6px 18px rgba(1, 14, 22, 0.25);
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(16px, 1.4vw, 20px);
+    color: var(--titulo-secundaria);
+}
