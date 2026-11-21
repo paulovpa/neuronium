@@ -18,7 +18,9 @@ main {
     align-items: center;
     background-color: var(--fundo-secundario);
     height: 90px;
-    width: 100vw;
+    /* 100% e não 100vw: o 100vw inclui a barra de rolagem vertical e deixava
+       o header mais largo que a tela, criando rolagem horizontal e uma faixa à direita */
+    width: 100%;
     border-radius: 0px;
     margin: 0px;
     position: sticky;
