@@ -155,3 +155,58 @@ main.inicio {
         animation: none;
     }
 }
+
+/* -----------------------------
+|  LAYOUT EM DUAS COLUNAS        |
+--------------------------------*/
+
+/* texto à esquerda (maior) e um painel de apoio à direita */
+.duas-colunas {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.coluna-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* -----------------------------
+|  SEÇÃO 2: UNIVERSO MÁGICO      |
+--------------------------------*/
+
+.painel-temas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+    border-radius: 20px;
+    background-color: rgba(254, 250, 230, 0.06);
+    border: 1px solid rgba(217, 178, 125, 0.2);
+}
+
+.lista-temas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+}
+
+/* cada tema é uma etiqueta arredondada, como os gêneros do Spotify */
+.lista-temas li {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background-color: var(--elem-secundaria);
+    color: var(--titulo-secundaria);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* a resiliência é o "poder" que liga a saga ao nosso mundo, por isso fica em dourado */
+.lista-temas li:last-child {
+    background: var(--grad-ouro);
+    color: var(--primaria);
+}
