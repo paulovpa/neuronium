@@ -543,3 +543,24 @@ main.inicio {
     font-size: 14px;
     color: var(--elem-secundaria);
 }
+
+/* -----------------------------
+|  NAVEGAÇÃO PELAS SEÇÕES        |
+--------------------------------*/
+
+/* ao clicar num link do header, a página desliza até a seção em vez de pular */
+html {
+    scroll-behavior: smooth;
+}
+
+/* a seção para logo abaixo do header fixo, com o mesmo respiro entre os painéis */
+.secao-tela {
+    scroll-margin-top: calc(var(--altura-header) + var(--respiro-inicio));
+}
+
+/* para quem pediu menos animação no sistema, a página pula direto para a seção */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
