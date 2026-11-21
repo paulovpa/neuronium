@@ -1,3 +1,8 @@
+/* sem o menu lateral, o conteúdo não precisa mais da margem reservada no global.css */
+main {
+  margin-left: 0;
+}
+
 .boas-vindas {
   border-radius: 24px;
   padding: 40px;
