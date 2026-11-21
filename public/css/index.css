@@ -171,6 +171,21 @@ main {
     gap: 4px;
 }
 
+/* os botões de ação ficam no fluxo do flex, à direita */
+#menu_principal.header-logado #menu_acesso {
+    position: static;
+}
+
+/* o Jogar ganha contorno dourado para se destacar dos links (sem efeito de brilho: header é estático) */
+#menu_principal .menu-item.jogar {
+    border: 1px solid var(--titulo-primaria-light);
+}
+
+#menu_principal .menu-item.jogar a,
+#menu_principal .menu-item.jogar .item-descricao {
+    color: var(--titulo-primaria-light);
+}
+
 /* -----------------------
 |  FINAL DO MENU HEADER |
 --------------------------*/
