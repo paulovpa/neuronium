@@ -441,3 +441,90 @@ main.inicio {
     font-size: 28px;
     color: var(--titulo-primaria-light);
 }
+
+/* -----------------------------
+|  SEÇÃO 8: NEURONIUM GAME       |
+--------------------------------*/
+
+.duelo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* cada linha do duelo: carta de feitiço | VS | carta do chefe */
+.duelo-linha {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+}
+
+.duelo-carta {
+    padding: 20px 12px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(1, 14, 22, 0.3);
+}
+
+/* o feitiço é dourado (o "bem"), o chefe é vinho (o desafio) */
+.carta-feitico {
+    background: var(--grad-ouro);
+    color: var(--primaria);
+}
+
+.carta-chefe {
+    background: linear-gradient(135deg, #702D3C, #1C2B40);
+    color: var(--titulo-secundaria);
+}
+
+.duelo-vs {
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--titulo-primaria-light);
+}
+
+/* -----------------------------
+|  SEÇÃO 9: DASHBOARD            |
+--------------------------------*/
+
+/* conteúdo centralizado, para seções com pouco texto */
+.conteudo-centro {
+    align-items: center;
+    text-align: center;
+}
+
+.selo-em-breve {
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: var(--grad-ouro);
+    color: var(--primaria);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* barras tracejadas de um gráfico que ainda não existe */
+.esboco-grafico {
+    width: 100%;
+    max-width: 560px;
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 24px;
+    border-radius: 20px;
+    background-color: rgba(254, 250, 230, 0.05);
+}
+
+.esboco-grafico span {
+    flex: 1;
+    border-radius: 8px 8px 0 0;
+    border: 2px dashed rgba(217, 178, 125, 0.45);
+    border-bottom: none;
+}
