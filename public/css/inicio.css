@@ -210,3 +210,40 @@ main.inicio {
     background: var(--grad-ouro);
     color: var(--primaria);
 }
+
+/* -----------------------------
+|  SEÇÃO 3: NEUROCIÊNCIA         |
+--------------------------------*/
+
+.grade-neuro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.card-neuro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+    border-radius: 20px;
+    background-color: var(--elem-secundaria);
+    box-shadow: 0 6px 18px rgba(1, 14, 22, 0.25);
+}
+
+.card-neuro > i {
+    font-size: 28px;
+    color: var(--titulo-primaria-light);
+}
+
+/* o marco de Pavlov fica destacado no fim do primeiro card */
+.marco-neuro {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(217, 178, 125, 0.4);
+    color: var(--titulo-primaria-light);
+    font-size: 13px;
+    font-weight: 600;
+}
