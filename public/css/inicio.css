@@ -9,9 +9,8 @@
    ========================================================= */
 
 :root {
-    /* espaço entre os painéis e as bordas da tela */
+    /* espaço em cima e embaixo da área das seções */
     --respiro-inicio: 20px;
-    --arredondamento-painel: 24px;
 }
 
 /* na inicio o fundo é só a cor da marca, sem a imagem do global.css */
@@ -19,30 +18,30 @@ body.pagina-inicio {
     background: var(--fundo-primario);
 }
 
-/* sem o menu lateral, o conteúdo não precisa mais da margem reservada no global.css */
+/* sem o menu lateral, o conteúdo não precisa mais da margem reservada no global.css.
+   As seções vão de uma borda à outra da tela e ficam coladas umas nas outras. */
 main.inicio {
     margin-left: 0;
-    padding: var(--respiro-inicio);
+    padding: var(--respiro-inicio) 0;
     display: flex;
     flex-direction: column;
-    gap: var(--respiro-inicio);
+    gap: 0;
 }
 
 /* -----------------------------
 |  BASE DAS SEÇÕES               |
 --------------------------------*/
 
-/* cada seção ocupa a tela inteira, descontando o header e o respiro de cima e de baixo */
+/* cada seção ocupa a tela inteira, descontando só o header
+   (sem bordas arredondadas e sem sombra, pois as seções ficam coladas) */
 .secao-tela {
-    min-height: calc(100vh - var(--altura-header) - (var(--respiro-inicio) * 2));
+    min-height: calc(100vh - var(--altura-header));
     display: flex;
     align-items: center;
     justify-content: center;
     padding: clamp(32px, 6vw, 96px);
-    border-radius: var(--arredondamento-painel);
     color: var(--titulo-secundaria);
     background: var(--fundo-secundario);
-    box-shadow: 0 20px 60px rgba(1, 14, 22, 0.25);
 }
 
 /* tons do topo de cada painel, tirados dos gradientes do global.css */
@@ -553,9 +552,9 @@ html {
     scroll-behavior: smooth;
 }
 
-/* a seção para logo abaixo do header fixo, com o mesmo respiro entre os painéis */
+/* a seção para exatamente abaixo do header fixo */
 .secao-tela {
-    scroll-margin-top: calc(var(--altura-header) + var(--respiro-inicio));
+    scroll-margin-top: var(--altura-header);
 }
 
 /* para quem pediu menos animação no sistema, a página pula direto para a seção */
@@ -593,7 +592,6 @@ html {
 @media (max-width: 768px) {
     :root {
         --respiro-inicio: 10px;
-        --arredondamento-painel: 18px;
     }
 
     .secao-tela {
