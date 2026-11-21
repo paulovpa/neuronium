@@ -225,30 +225,6 @@ main {
     color:var(--titulo-secundaria);
 }
 
-#titulo_explorar {
-    padding: 30px;
-    font-weight: 700px;
-    font-style: bold;
-    color:var(--titulo-secundaria);
-    align-items: start;
-    justify-content: start;
-    font-weight: 100px;
-    font-size:20px;
-}
-
-/* ABRIR OU FECHAR MENU LATERAL
-.item-descricao {
-    width: 0px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    gap: 14px;
-} */
-
-#menu_lateral.open-menu_lateral {
-    min-width: 15%;
-}
-
 /* -----------------------
 |  FINAL DO MENU LATERAL  |
 --------------------------*/
