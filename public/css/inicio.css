@@ -9,7 +9,7 @@
    ========================================================= */
 
 :root {
-    /* espaço em cima e embaixo da área das seções */
+    /* espaço nas laterais do rodapé */
     --respiro-inicio: 20px;
 }
 
@@ -19,10 +19,11 @@ body.pagina-inicio {
 }
 
 /* sem o menu lateral, o conteúdo não precisa mais da margem reservada no global.css.
-   As seções vão de uma borda à outra da tela e ficam coladas umas nas outras. */
+   As seções vão de uma borda à outra da tela, coladas no header e umas nas outras
+   (o espaço antes do texto do rodapé vem do padding do próprio rodapé). */
 main.inicio {
     margin-left: 0;
-    padding: var(--respiro-inicio) 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 0;
