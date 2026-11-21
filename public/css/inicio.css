@@ -361,3 +361,48 @@ main.inicio {
     color: var(--titulo-primaria-light);
     transform: rotate(90deg);
 }
+
+/* -----------------------------
+|  SEÇÃO 6: FEITIÇOS             |
+--------------------------------*/
+
+.grade-feiticos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* cards em degradê, no estilo das capas de playlist do Spotify */
+.card-feitico {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(1, 14, 22, 0.35);
+}
+
+/* cada card usa um degradê que já existe no projeto */
+.card-habitos  { background: var(--grad-reliquias); }
+.card-patrono  { background: var(--grad-biblioteca); }
+.card-penseira { background: linear-gradient(135deg, #01294c, #64375c); }
+
+.feitico-analogia {
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--titulo-secundaria);
+}
+
+.feitico-conceito {
+    margin-top: -8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--titulo-primaria-light);
+}
+
+.card-feitico p {
+    font-size: 15px;
+    line-height: 1.65;
+}
