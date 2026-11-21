@@ -37,7 +37,7 @@ function exibirNomeUsuario() {
     }
 }
 
-// chamada pelo botão Logout do menu lateral: apaga os dados de quem entrou
+// chamada pelo botão Sair do header pós-login: apaga os dados de quem entrou
 function limparSessao() {
     sessionStorage.removeItem("ID_USUARIO");
     sessionStorage.removeItem("NOME_USUARIO");

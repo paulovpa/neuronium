@@ -181,6 +181,21 @@ main {
     border: 1px solid var(--titulo-primaria-light);
 }
 
+/* o Sair é um <button>: tiro o espaçamento e o fundo próprios dele
+   para ficar igual aos outros itens do header */
+#menu_principal #botao_logout {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0;
+    font-family: inherit;
+    color: var(--titulo-secundaria);
+}
+
+#menu_principal #botao_logout:hover {
+    background-color: transparent;
+}
+
 #menu_principal .menu-item.jogar a,
 #menu_principal .menu-item.jogar .item-descricao {
     color: var(--titulo-primaria-light);
