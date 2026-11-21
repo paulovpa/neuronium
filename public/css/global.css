@@ -257,6 +257,44 @@ main {
     margin-bottom: 44px;
 }
 
+/* -------------------------------------
+|  EFEITO DOS BOTÕES (todas as telas)   |
+----------------------------------------*/
+
+/* qualquer botão novo só precisa da classe "botao" para ganhar o efeito.
+   Os botões do menu header (Entrar, Cadastrar) ficam de fora: eles são estáticos. */
+.botao,
+.botao-dourado {
+    /* a cor do texto muda devagar, igual ao logo do header;
+       o transform é rápido para o clique parecer imediato */
+    transition: color 0.4s ease-in-out, transform 0.12s ease;
+}
+
+/* ao passar o mouse: o texto do botão "acende" mudando de cor */
+.botao:hover {
+    color: var(--titulo-secundaria-hover);
+}
+
+.botao-dourado:hover {
+    color: var(--titulo-secundaria);
+}
+
+/* ao clicar: o botão "afunda" um pouco, como um botão físico,
+   e volta ao normal sozinho quando o clique é solto */
+.botao:active,
+.botao-dourado:active {
+    transform: translateY(2px) scale(0.97);
+    transition-duration: 0.4s, 0.05s;
+}
+
+/* para quem pediu menos animação no sistema, o botão não se mexe */
+@media (prefers-reduced-motion: reduce) {
+    .botao:active,
+    .botao-dourado:active {
+        transform: none;
+    }
+}
+
 /* -----------------------------
 |  CELULAR (até 768px)           |
 --------------------------------*/
