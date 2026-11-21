@@ -149,21 +149,28 @@ main {
 --------------------------*/
 
 /* o header pós-login tem mais links, então em vez de posições fixas (absolute)
-   ele usa flex: nome e links à esquerda, botões de ação à direita */
+   ele usa uma grade de 3 colunas: nome à esquerda, links no centro e ações à direita.
+   As colunas das pontas têm o mesmo tamanho (1fr), por isso os links ficam no centro exato. */
 #menu_principal.header-logado {
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     padding: 0 clamp(20px, 4vw, 80px);
+}
+
+/* display: contents faz o nome e a lista de links virarem colunas da grade,
+   mesmo estando dentro da mesma div no HTML */
+#menu_principal.header-logado #menu_conteudo {
+    display: contents;
 }
 
 #menu_principal.header-logado #logo_nome {
     position: static;
     padding: 0;
+    justify-self: start;
 }
 
-#menu_principal.header-logado #menu_conteudo {
-    padding: 0;
-    margin: 0;
-    gap: clamp(16px, 3vw, 48px);
+#menu_principal.header-logado #menu_itens {
+    justify-self: center;
 }
 
 #menu_principal.header-logado ul {
@@ -171,14 +178,22 @@ main {
     gap: 4px;
 }
 
-/* os botões de ação ficam no fluxo do flex, à direita */
 #menu_principal.header-logado #menu_acesso {
     position: static;
+    justify-self: end;
 }
 
-/* o Jogar ganha contorno dourado para se destacar dos links (sem efeito de brilho: header é estático) */
+/* o Jogar é o destaque do header: fundo dourado e contorno creme
+   (sem efeito de brilho, pois os botões do header são estáticos) */
 #menu_principal .menu-item.jogar {
-    border: 1px solid var(--titulo-primaria-light);
+    background: var(--titulo-primaria-light);
+    border: 1px solid #fefae6;
+}
+
+/* texto escuro para ficar legível sobre o fundo dourado */
+#menu_principal .menu-item.jogar a,
+#menu_principal .menu-item.jogar .item-descricao {
+    color: var(--primaria);
 }
 
 /* o Sair é um <button>: tiro o espaçamento e o fundo próprios dele
@@ -196,9 +211,15 @@ main {
     background-color: transparent;
 }
 
-#menu_principal .menu-item.jogar a,
-#menu_principal .menu-item.jogar .item-descricao {
-    color: var(--titulo-primaria-light);
+/* o ícone do Sair fica igual ao do Entrar: o global.css dá 50px aos ícones
+   do menu lateral, e aqui ele volta ao tamanho de um ícone de header */
+#menu_principal #botao_logout i {
+    display: flex;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    margin-right: 0;
+    color: inherit;
 }
 
 /* -----------------------
