@@ -1,0 +1,8 @@
+/* -----------------------------
+|  PÁGINA MEU ELO                |
+--------------------------------*/
+
+/* tira o espaço que o global.css reservava para o menu lateral */
+main {
+    margin-left: 0;
+}
