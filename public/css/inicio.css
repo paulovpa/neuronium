@@ -105,3 +105,53 @@ main.inicio {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* -----------------------------
+|  SEÇÃO 1: BOAS-VINDAS          |
+--------------------------------*/
+
+/* mesmo banner do hero da index, para o usuário reconhecer o lugar depois do login */
+.boas-vindas {
+    text-align: center;
+    background:
+        linear-gradient(180deg, rgba(1, 14, 22, 0.35) 0%, rgba(1, 14, 22, 0.85) 100%),
+        url('../assets/imgs/bg-hogwarts.png') center / cover no-repeat;
+}
+
+.boas-vindas .secao-conteudo {
+    align-items: center;
+}
+
+.boas-vindas h1 {
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1.15;
+    color: var(--titulo-secundaria);
+    text-shadow: 0 4px 24px rgba(1, 14, 22, 0.6);
+}
+
+.boas-vindas p {
+    font-size: clamp(16px, 1.4vw, 20px);
+}
+
+/* seta dourada que "flutua" devagar para indicar que dá para rolar */
+.seta-rolar {
+    margin-top: 24px;
+    font-size: 24px;
+    color: var(--titulo-primaria-light);
+    animation: flutuar 2s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(8px); }
+}
+
+/* para quem pediu menos animação no sistema, a seta fica parada */
+@media (prefers-reduced-motion: reduce) {
+    .seta-rolar {
+        animation: none;
+    }
+}
