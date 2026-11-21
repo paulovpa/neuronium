@@ -3,16 +3,19 @@
 |  Linha do tempo com 10 eventos |
 --------------------------------*/
 
-/* O main desta página ocupa todo o espaço que sobra ao lado do menu */
+/* O main desta página ocupa todo o espaço abaixo do header.
+   margin-left: 0 tira o espaço que o global.css reservava para o menu lateral. */
 main {
     flex: 1;
     min-width: 0;
+    margin-left: 0;
+    padding: 20px;
 }
 
-/* Área da linha do tempo: tem a altura da tela (menos o padding de 20px em cima e embaixo do main).
+/* Área da linha do tempo: tem a altura da tela menos o header e o padding de 20px em cima e embaixo do main.
    A variável --altura-tela é usada em vários lugares para cada "tela" ter exatamente essa altura. */
 #jornada_area {
-    --altura-tela: calc(100dvh - 40px);
+    --altura-tela: calc(100dvh - var(--altura-header) - 40px);
     position: relative; /* o botão se posiciona em relação a esta área */
     /* height: 100% */
 }
@@ -261,8 +264,13 @@ main {
 
 @media (max-width: 768px) {
 
+    /* no celular o padding do main cai para 10px em cima e embaixo */
+    main {
+        padding: 10px;
+    }
+
     #jornada_area {
-        --altura-tela: calc(100dvh - 20px);
+        --altura-tela: calc(100dvh - var(--altura-header) - 20px);
     }
 
     /* A linha vai para a esquerda */

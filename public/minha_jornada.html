@@ -8,6 +8,7 @@
     <script src="js/sessao.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/minha_jornada.css">
     
 
@@ -15,88 +16,77 @@
 </head>
 
 <body>
-    <nav id="menu_lateral">
+    <!-- header pós-login: o nome leva ao início e os links levam às seções da inicio.html -->
+    <nav id="menu_principal" class="header-logado">
         <div id="menu_conteudo">
             <div id="logo_nome">
+                <a href="inicio.html">
                 <h1>Neuronium</h1>
-            </div>
-            <div id="usuario">
-                <img src="assets/imgs/avatar_01.jpeg" id="usuario_avatar" alt="Avatar">
-
-                <p id="usuario_infos">
-                    <span class="item-descricao">
-                        Paulo
-                    </span>
-                    <span class="item-descricao">
-                        Mago Soberano
-                    </span>
-                </p>
+                </a>
             </div>
 
             <ul id="menu_itens">
                 <li class="menu-item">
-                    <a href="inicio.html">
-                        <i class="fa-solid fa-house"></i>
+                    <a href="inicio.html#universo">
                         <span class="item-descricao">
-                            Início
-                        </span>
-                    </a>
-                </li>
-                <li class="menu-item active">
-                    <a href="minha_jornada.html">
-                        <i class="fa-regular fa-compass"></i>
-                        <span class="item-descricao">
-                            Minha Jornada
+                            Universo Mágico
                         </span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="meu_elo.html">
-                        <i class="fa-solid fa-book-bookmark"></i>
+                    <a href="inicio.html#neurociencia">
                         <span class="item-descricao">
-                            Meu Elo
+                            Neurociência
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#jornada">
+                        <span class="item-descricao">
+                            Jornada
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#conexao">
+                        <span class="item-descricao">
+                            A Conexão
                         </span>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="palacio_mental.html">
-                        <i class="fa-brands fa-fort-awesome"></i>
                         <span class="item-descricao">
                             Palácio Mental
                         </span>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="dashboard/dashboard.html">
-                        <i class="fa-solid fa-chart-line"></i>
+            </ul>
+        </div>
+
+        <!-- ações à direita do header -->
+        <div id="menu_acesso">
+            <ul>
+                <!-- link provisório: a tela do game ainda será criada -->
+                <li class="menu-item jogar">
+                    <a href="#" title="Em breve">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
                         <span class="item-descricao">
-                            Dashboard
+                            Jogar
                         </span>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="praticas.html">
-                        <i class="fa-solid fa-flask"></i>
+                <!-- o logout apaga a sessão (js/sessao.js) e volta para a index -->
+                <li class="menu-item sair">
+                    <button id="botao_logout" type="button" onclick="limparSessao()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         <span class="item-descricao">
-                            Práticas
+                            Sair
                         </span>
-                    </a>
+                    </button>
                 </li>
             </ul>
-
         </div>
-
-        <div id="logout">
-            <button id="botao_logout" onclick="limparSessao()">
-                <span>
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span class="item-descricao">
-                        Logout
-                    </span>
-                </span>
-            </button>
-        </div>
-
     </nav>
     <main>
 
@@ -334,7 +324,7 @@
             'O dispositivo mágico',
             'O livro emprestado',
             'A primeira releitura',
-            'Mágia em família',
+            'Magia em família',
             'O momento difícil',
             'A descoberta da neurociência',
             'A saga com outros olhos',
@@ -359,7 +349,7 @@
         var descEvento = [
             'Um garoto que numa noite estrelada foi assistir na TV um filme de jovens bruxos que estudavam num castelo onde qualquer ideia poderia se tornar realidade...esse garoto era ninguém mais, ninguém menos que... eu, Paulo.',
             'De tanto gostar dos filmes, fiquei fascinado pelo grande castelo que não parecia ter fim, pelos inúmeros feitiços e a criatividade que existia nesse mundo.',
-            'O ano era 2010, e mais um lançamento da saga enchia meu peito de alegria, e dessa vez eu queria assistir sempre que desse vontade, e para isso eu recorri ao meu grande mentor, meu pai, para ter acesso a mágia do DVD.',
+            'O ano era 2010, e mais um lançamento da saga enchia meu peito de alegria, e dessa vez eu queria assistir sempre que desse vontade, e para isso eu recorri ao meu grande mentor, meu pai, para ter acesso a magia do DVD.',
             'O livro que um amigo me emprestou e que eu não consegui largar.',
             'Ao reassistir, comecei a perceber detalhes que tinham passado despercebidos.',
             'As festas de final de ano com meus primos, brincavamos que eramos bruxos',
