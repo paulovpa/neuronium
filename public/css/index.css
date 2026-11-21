@@ -147,3 +147,80 @@ main {
 /* -----------------------
 |  FINAL DO MENU HEADER |
 --------------------------*/
+
+
+/* -----------------------
+|  INÍCIO DA PÁGINA INDEX  |
+--------------------------*/
+
+:root {
+    /* altura do header (#menu_principal), usada para a seção ocupar o resto da tela */
+    --altura-header: 90px;
+    /* espaço entre o banner e as bordas da tela */
+    --respiro-index: 20px;
+}
+
+/* na index o fundo é só a cor da marca, sem a imagem do global.css */
+body.pagina-index {
+    background: var(--fundo-primario);
+}
+
+/* tira a margem que o global.css reserva para o menu lateral */
+main.index {
+    margin-left: 0;
+    padding: var(--respiro-index);
+}
+
+/* banner em tela inteira: altura da tela menos o header e o respiro de cima e de baixo */
+.hero {
+    min-height: calc(100vh - var(--altura-header) - (var(--respiro-index) * 2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(1, 14, 22, 0.35);
+
+    /* degradê escuro por cima da imagem para o título ficar legível */
+    background:
+        linear-gradient(180deg, rgba(1, 14, 22, 0.35) 0%, rgba(1, 14, 22, 0.8) 100%),
+        url('../assets/imgs/bg-hogwarts.png') center / cover no-repeat;
+}
+
+.hero h1 {
+    max-width: 20ch;
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 1.15;
+    color: var(--titulo-secundaria);
+    text-shadow: 0 4px 24px rgba(1, 14, 22, 0.6);
+}
+
+/* segunda parte da frase em dourado, a cor de destaque do Neuronium */
+.hero-destaque {
+    display: block;
+    color: var(--titulo-primaria-light);
+}
+
+/* -----------------------------
+|  CELULAR (até 768px)           |
+--------------------------------*/
+
+@media (max-width: 768px) {
+    :root {
+        --respiro-index: 10px;
+    }
+
+    .hero {
+        padding: 24px;
+        border-radius: 18px;
+    }
+}
+
+/* -----------------------
+|  FINAL DA PÁGINA INDEX  |
+--------------------------*/
