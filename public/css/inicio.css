@@ -1,97 +1,107 @@
+/* =========================================================
+   INÍCIO (pós-login)
+   Usa as variáveis da paleta definidas em global.css
+   e o header (#menu_principal) definido em index.css.
+
+   Estilo inspirado no Spotify desktop: cada seção é um painel
+   escuro com cantos arredondados e um tom de cor no topo,
+   sobre o fundo bege do Neuronium.
+   ========================================================= */
+
+:root {
+    /* espaço entre os painéis e as bordas da tela */
+    --respiro-inicio: 20px;
+    --arredondamento-painel: 24px;
+}
+
+/* na inicio o fundo é só a cor da marca, sem a imagem do global.css */
+body.pagina-inicio {
+    background: var(--fundo-primario);
+}
+
 /* sem o menu lateral, o conteúdo não precisa mais da margem reservada no global.css */
-main {
-  margin-left: 0;
+main.inicio {
+    margin-left: 0;
+    padding: var(--respiro-inicio);
+    display: flex;
+    flex-direction: column;
+    gap: var(--respiro-inicio);
 }
 
-.boas-vindas {
-  border-radius: 24px;
-  padding: 40px;
-  color: var(--elem-secundaria);
-  width: 50vw;
-  margin-top: 50px;
+/* -----------------------------
+|  BASE DAS SEÇÕES               |
+--------------------------------*/
 
+/* cada seção ocupa a tela inteira, descontando o header e o respiro de cima e de baixo */
+.secao-tela {
+    min-height: calc(100vh - var(--altura-header) - (var(--respiro-inicio) * 2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(32px, 6vw, 96px);
+    border-radius: var(--arredondamento-painel);
+    color: var(--titulo-secundaria);
+    background: var(--fundo-secundario);
+    box-shadow: 0 20px 60px rgba(1, 14, 22, 0.25);
 }
 
-.boas-vindas.secao h1,
-.boas-vindas.secao span {
-  font-family: 'Playfair Display', Helvetica, sans-serif;
-  font-weight: 500;
-  font-style: italic;
+/* tons do topo de cada painel, tirados dos gradientes do global.css */
+.tom-roxo  { background: linear-gradient(180deg, #594477 0%, var(--fundo-secundario) 65%); }
+.tom-verde { background: linear-gradient(180deg, #315B46 0%, var(--fundo-secundario) 65%); }
+.tom-azul  { background: linear-gradient(180deg, #294B70 0%, var(--fundo-secundario) 65%); }
+.tom-vinho { background: linear-gradient(180deg, #702D3C 0%, var(--fundo-secundario) 65%); }
+
+/* largura máxima do conteúdo, para o texto não ficar com linhas longas demais */
+.secao-conteudo {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.boas-vindas.secao h1 {
-  margin-bottom: 30px;
+/* rótulo pequeno em dourado acima do título (como o "Playlist" do Spotify) */
+.secao-rotulo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--titulo-primaria-light);
 }
 
-.boas-vindas {
-  width: 50vw;
+.secao-tela h2 {
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.15;
+    color: var(--titulo-secundaria);
 }
 
-.boas-vindas p {
-  width: 35vw;
+.secao-tela p {
+    max-width: 75ch;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.7;
+    color: var(--elem-primaria-hover);
 }
 
-.card-atalho {
-  border-radius: 20px;
-  margin-left: 40px;
-  padding: 24px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 400px;
-  min-height: 300px;
-  transition: transform 0.2s;
-  text-decoration: none;
-}
+/* -----------------------------
+|  BOTÃO PADRÃO DAS SEÇÕES       |
+--------------------------------*/
 
-.card-atalho:hover {
-  transform: translateY(-4px);
-}
-
-.card-atalho > i {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.card-atalho p {
-  opacity: 0.85;
-  flex-grow: 1;
-  text-decoration: none;
-}
-
-.card-atalho span {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.card-atalho a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.card-jornada {
-  background: linear-gradient(135deg, #01294c, #37263e);
-}
-
-.card-palacio {
-  background: linear-gradient(135deg, #01294c, #64375c);
-}
-
-.card-elo {
-  background: linear-gradient(135deg, #01294c, #5f3b58);
-}
-
-.grade {
-  display: flex;
-}
-
-.titulo-secao h2 {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  margin: 40px;
-  color: var(--elem-secundaria);
-  font-family: 'Redaction 10', Helvetica, sans-serif;
-  margin-top: 100px;
+/* o brilho no hover e o efeito de pressionar vêm do global.css (classe "botao") */
+.botao {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 1px solid var(--titulo-primaria-light);
+    border-radius: 999px;
+    background-color: rgba(217, 178, 125, 0.08);
+    color: var(--titulo-secundaria);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
 }
