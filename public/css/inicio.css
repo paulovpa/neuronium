@@ -46,7 +46,7 @@ main.inicio {
 }
 
 /* tons do topo de cada painel, tirados dos gradientes do global.css */
-.tom-roxo  { background: linear-gradient(180deg, #594477 0%, var(--fundo-secundario) 65%); }
+.tom-roxo  { background: linear-gradient(180deg, var(--fundo-secundario), #1C2B40 65%); }
 .tom-verde { background: linear-gradient(180deg, #315B46 0%, var(--fundo-secundario) 65%); }
 .tom-azul  { background: linear-gradient(180deg, #294B70 0%, var(--fundo-secundario) 65%); }
 .tom-vinho { background: linear-gradient(180deg, #702D3C 0%, var(--fundo-secundario) 65%); }
@@ -227,9 +227,8 @@ main.inicio {
     gap: 20px;
     padding: 32px;
     border-radius: 20px;
-    background-color: var(--elem-secundaria);
-    box-shadow: 0 6px 18px rgba(1, 14, 22, 0.25);
 }
+
 
 .card-neuro > i {
     font-size: 28px;
