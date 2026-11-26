@@ -48,7 +48,7 @@ main.inicio {
 /* tons do topo de cada painel, tirados dos gradientes do global.css */
 .tom-roxo  { background: linear-gradient(180deg, var(--fundo-secundario), #1C2B40 65%); }
 .tom-verde { background: linear-gradient(180deg, #315B46 0%, var(--fundo-secundario) 65%); }
-.tom-azul  { background: linear-gradient(180deg, #294B70 0%, var(--fundo-secundario) 65%); }
+.tom-azul  { background: linear-gradient(180deg, #1C2B40 0%, #1C2B40 65%); }
 .tom-vinho { background: linear-gradient(180deg, #702D3C 0%, var(--fundo-secundario) 65%); }
 
 /* largura máxima do conteúdo, para o texto não ficar com linhas longas demais */
@@ -57,9 +57,28 @@ main.inicio {
     max-width: 1200px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 60px;
 }
 
+#neurociencia .secao-conteudo h2 {
+    align-self:flex-end;
+    margin-right: 50px;
+}
+
+#neurociencia {
+    position: relative;
+}
+
+#neurociencia::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);   /* centraliza a linha */
+    width: 80%;                    /* comprimento: sobra 10% de cada lado */
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
 /* rótulo pequeno em dourado acima do título (como o "Playlist" do Spotify) */
 .secao-rotulo {
     font-size: 13px;
@@ -83,6 +102,10 @@ main.inicio {
     font-size: clamp(15px, 1.2vw, 18px);
     line-height: 1.7;
     color: var(--elem-primaria-hover);
+}
+
+#botao-neurociencia.botao {
+    margin-left: 30px;
 }
 
 /* -----------------------------
@@ -171,7 +194,7 @@ main.inicio {
 .coluna-texto {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 60px;
 }
 
 /* -----------------------------
@@ -219,6 +242,7 @@ main.inicio {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+    align-items: center;
 }
 
 .card-neuro {
@@ -235,6 +259,19 @@ main.inicio {
     color: var(--titulo-primaria-light);
 }
 
+.coluna-neuro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.titulo-neuro {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 /* o marco de Pavlov fica destacado no fim do primeiro card */
 .marco-neuro {
     align-self: flex-start;
@@ -247,6 +284,16 @@ main.inicio {
     font-weight: 600;
 }
 
+#painel-neurociencia {
+    display: flex;
+    justify-content: center;
+    margin: 0px 40px;
+}
+#painel-neurociencia img {
+    transform: rotate(-2deg);
+    width: 500px;
+
+}
 /* -----------------------------
 |  SEÇÃO 4: MINHA JORNADA        |
 --------------------------------*/
