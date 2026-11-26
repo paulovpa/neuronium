@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Mágico | Neuronium</title>
+    <script src="js/sessao.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/universo_magico.css">
+    
+
+
+</head>
+
+<body class="pagina-universo">
+    <!-- header pós-login: o nome leva ao início e os links levam às seções da inicio.html -->
+    <nav id="menu_principal" class="header-logado">
+        <div id="menu_conteudo">
+            <div id="logo_nome">
+                <a href="inicio.html">
+                <h1>Neuronium</h1>
+                </a>
+            </div>
+
+            <ul id="menu_itens">
+                <li class="menu-item active">
+                    <a href="universo_magico.html">
+                        <span class="item-descricao">
+                            Universo Mágico
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#neurociencia">
+                        <span class="item-descricao">
+                            Neurociência
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#jornada">
+                        <span class="item-descricao">
+                            Jornada
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#conexao">
+                        <span class="item-descricao">
+                            A Conexão
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="palacio_mental.html">
+                        <span class="item-descricao">
+                            Palácio Mental
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ações à direita do header -->
+        <div id="menu_acesso">
+            <ul>
+                <!-- link provisório: a tela do game ainda será criada -->
+                <li class="menu-item jogar">
+                    <a href="#" title="Em breve">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span class="item-descricao">
+                            Jogar
+                        </span>
+                    </a>
+                </li>
+                <!-- o logout apaga a sessão (js/sessao.js) e volta para a index -->
+                <li class="menu-item sair">
+                    <button id="botao_logout" type="button" onclick="limparSessao()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span class="item-descricao">
+                            Sair
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="universo">
+
+                <section id="universo" class="secao-tela tom-roxo">
+            <div class="secao-conteudo duas-colunas">
+                <div class="coluna-texto">
+                    <span class="secao-rotulo">Universo Mágico</span>
+                    <h2>Um mundo onde tudo pode ser criado.</h2>
+                    <p>
+                        Harry Potter é uma saga de livros e filmes de ficção que acompanha Harry e seus amigos,
+                        jovens bruxos em Hogwarts, uma escola onde se aprende a lançar feitiços, preparar poções
+                        e enfrentar criaturas assustadoras. Por trás da magia, a história fala de coragem,
+                        amizade, medo, memória e decisões difíceis, temas que também estão dentro de cada um de nós.
+                    </p>
+                    <p>
+                        A jornada atravessa fases importantes da vida de Potter, que cresceu sem imaginar que tinha
+                        um dos maiores poderes de todos os tempos: resistência extrema a magias obscuras.
+                        Que no nosso mundo poderia ser traduzido como a resiliência de não perder o controle de si.
+                    </p>
+                    <a href="#" class="botao">
+                        Explore o universo mágico
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <!-- os temas citados no texto, em etiquetas -->
+                <div class="painel-quadro">
+                    <img width="500px" src="assets/imgs/album/quadro-harry-original.png">
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+</body>
+
+</html>

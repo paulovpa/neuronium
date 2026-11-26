@@ -1,0 +1,382 @@
+/* =========================================================
+   UNIVERSO MÁGICO
+   Usa as variáveis da paleta definidas em global.css.
+   O header (#menu_principal) e as seções vieram de index.css e inicio.css.
+   ========================================================= */
+
+:root {
+    /* altura do header (#menu_principal), usada para a seção ocupar o resto da tela */
+    --altura-header: 90px;
+}
+
+/* -----------------------
+|  INÍCIO DO MENU HEADER  |
+--------------------------*/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 0px;
+}
+
+#menu_principal {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: var(--fundo-secundario);
+    height: 90px;
+    /* 100% e não 100vw: o 100vw inclui a barra de rolagem vertical e deixava
+       o header mais largo que a tela, criando rolagem horizontal e uma faixa à direita */
+    width: 100%;
+    border-radius: 0px;
+    margin: 0px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+#menu_principal ul,
+#menu_principal nav,
+#menu_principal > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu_principal ul{
+    margin: 30px;
+}
+
+#menu_principal #menu_acesso {
+    position: absolute;
+    right: 300px;
+}
+#menu_conteudo {
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#logo_nome {
+    padding: 12px;
+    font-size: 12px;
+    position: absolute;
+    left: 300px;
+}
+
+#logo_nome h1 {
+    font-family: 'Redaction 10', Helvetica, sans-serif;
+    color: var(--titulo-primaria-light);
+    transition: color 0.4s ease-in-out;
+    cursor:pointer;
+}
+
+#logo_nome a {
+    text-decoration: none;
+}
+
+#logo_nome h1:hover {
+    color: rgb(204, 184, 162);
+}
+
+
+#menu_itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.menu-item {
+    border-radius: 20px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.menu-item.active {
+    background-color: var(--elem-secundaria-hover);
+}
+
+.menu-item.active a,
+.menu-item.active span {
+    color: var(--titulo-secundaria-hover);
+}
+
+.menu-item:hover:not(.active),
+#botao_logout:hover {
+    background-color: var(--elem-secundaria-hover);
+}
+
+
+.menu-item a i {
+    display: flex;
+    align-items: center;
+
+    width: 10px;
+    height: 10px;
+}
+
+.menu-item i {
+    width: 50px;
+    height: 50px;
+}
+.menu-item a {
+    text-decoration: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: start; /* faz os itens do menu se alnharem a esquerda */
+    color:var(--titulo-secundaria);
+
+}
+
+
+.item-descricao {
+    font-size: 14px;
+    color:var(--titulo-secundaria);
+}
+
+/* -----------------------
+|  HEADER PÓS-LOGIN        |
+--------------------------*/
+
+/* o header pós-login tem mais links, então em vez de posições fixas (absolute)
+   ele usa uma grade de 3 colunas: nome à esquerda, links no centro e ações à direita.
+   As colunas das pontas têm o mesmo tamanho (1fr), por isso os links ficam no centro exato. */
+#menu_principal.header-logado {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 clamp(20px, 4vw, 80px);
+}
+
+/* display: contents faz o nome e a lista de links virarem colunas da grade,
+   mesmo estando dentro da mesma div no HTML */
+#menu_principal.header-logado #menu_conteudo {
+    display: contents;
+}
+
+#menu_principal.header-logado #logo_nome {
+    position: static;
+    padding: 0;
+    justify-self: start;
+}
+
+#menu_principal.header-logado #menu_itens {
+    justify-self: center;
+}
+
+#menu_principal.header-logado ul {
+    margin: 0;
+    gap: 4px;
+}
+
+#menu_principal.header-logado #menu_acesso {
+    position: static;
+    justify-self: end;
+}
+
+/* o Jogar é o destaque do header: fundo dourado e contorno creme
+   (sem efeito de brilho, pois os botões do header são estáticos) */
+#menu_principal .menu-item.jogar {
+    background: var(--titulo-primaria-light);
+    border: 1px solid #fefae6;
+}
+
+/* texto escuro para ficar legível sobre o fundo dourado */
+#menu_principal .menu-item.jogar a,
+#menu_principal .menu-item.jogar .item-descricao {
+    color: var(--primaria);
+}
+
+/* o Sair é um <button>: tiro o espaçamento e o fundo próprios dele
+   para ficar igual aos outros itens do header */
+#menu_principal #botao_logout {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0;
+    font-family: inherit;
+    color: var(--titulo-secundaria);
+}
+
+#menu_principal #botao_logout:hover {
+    background-color: transparent;
+}
+
+/* o ícone do Sair fica igual ao do Entrar: o global.css dá 50px aos ícones
+   do menu lateral, e aqui ele volta ao tamanho de um ícone de header */
+#menu_principal #botao_logout i {
+    display: flex;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    margin-right: 0;
+    color: inherit;
+}
+
+/* -----------------------
+|  FINAL DO MENU HEADER  |
+--------------------------*/
+
+
+/* no universo mágico o fundo é só a cor da marca, sem a imagem do global.css */
+body.pagina-universo {
+    background: var(--fundo-primario);
+}
+
+/* sem o menu lateral, o conteúdo não precisa mais da margem reservada no global.css.
+   As seções vão de uma borda à outra da tela, coladas no header e umas nas outras. */
+main.universo {
+    margin-left: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* -----------------------------
+|  BASE DAS SEÇÕES               |
+--------------------------------*/
+
+/* cada seção ocupa a tela inteira, descontando só o header */
+.secao-tela {
+    min-height: calc(100vh - var(--altura-header));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(32px, 6vw, 96px);
+    color: var(--titulo-secundaria);
+    background: var(--fundo-secundario);
+    /* a seção para exatamente abaixo do header fixo */
+    scroll-margin-top: var(--altura-header);
+}
+
+/* tom do topo do painel, tirado dos gradientes do global.css */
+.tom-roxo { background: linear-gradient(180deg, var(--fundo-secundario), #1C2B40 65%); }
+
+/* largura máxima do conteúdo, para o texto não ficar com linhas longas demais */
+.secao-conteudo {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.secao-rotulo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--titulo-primaria-light);
+}
+
+.secao-tela h2 {
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.15;
+    color: var(--titulo-secundaria);
+}
+
+.secao-tela p {
+    max-width: 75ch;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.7;
+    color: var(--elem-primaria-hover);
+}
+
+/* -----------------------------
+|  BOTÃO PADRÃO DAS SEÇÕES       |
+--------------------------------*/
+
+/* o brilho no hover e o efeito de pressionar vêm do global.css (classe "botao") */
+.botao {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 1px solid var(--titulo-primaria-light);
+    border-radius: 999px;
+    background-color: rgba(217, 178, 125, 0.08);
+    color: var(--titulo-secundaria);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* -----------------------------
+|  LAYOUT EM DUAS COLUNAS        |
+--------------------------------*/
+
+/* texto à esquerda (maior) e um painel de apoio à direita */
+.duas-colunas {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.coluna-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* -----------------------------
+|  NAVEGAÇÃO                     |
+--------------------------------*/
+
+/* ao clicar num link, a página desliza até a seção em vez de pular */
+html {
+    scroll-behavior: smooth;
+}
+
+/* para quem pediu menos animação no sistema, a página pula direto para a seção */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* -----------------------------
+|  TABLET (até 1024px)           |
+--------------------------------*/
+
+@media (max-width: 1024px) {
+
+    /* o painel de apoio desce para baixo do texto */
+    .duas-colunas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* -----------------------------
+|  CELULAR (até 768px)           |
+--------------------------------*/
+
+@media (max-width: 768px) {
+
+    .secao-tela {
+        padding: 40px 20px;
+    }
+
+    /* botões com a largura toda, mais fáceis de tocar com o dedo */
+    .botao {
+        align-self: stretch;
+        justify-content: center;
+    }
+}
