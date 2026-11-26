@@ -380,3 +380,123 @@ html {
         justify-content: center;
     }
 }
+
+/* -----------------------------
+|  FILMES DA SAGA                |
+--------------------------------*/
+
+/* o slide: seta da esquerda, carrossel com os filmes e seta da direita */
+.filmes-slide {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* o carrossel mostra 4 filmes por vez; os outros ficam escondidos à direita
+   e as setas rolam o carrossel até eles */
+.universo-filmes {
+    /* quantos filmes aparecem por vez */
+    --filmes-por-tela: 4;
+    --espaco-filmes: 48px;
+
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: var(--espaco-filmes);
+    padding: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* o encaixe da rolagem ignora o padding: sem isso o card é puxado até a borda */
+    scroll-padding-inline: 30px;
+    /* esconde a barra de rolagem, já que quem passa os filmes são as setas */
+    scrollbar-width: none;
+}
+
+.universo-filmes::-webkit-scrollbar {
+    display: none;
+}
+
+/* cada filme ocupa 1/4 do carrossel, descontando os 3 espaços entre eles */
+.universo-filmes > div {
+    flex: 0 0 calc((100% - (var(--filmes-por-tela) - 1) * var(--espaco-filmes)) / var(--filmes-por-tela));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-snap-align: start;
+}
+
+.universo-filmes img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--titulo-primaria-light);
+    box-shadow: 0 8px 20px rgba(1, 14, 22, 0.25);
+}
+
+/* título com a mesma fonte dos títulos das seções, centralizado com a capa */
+.universo-filmes h2 {
+    font-family: 'Playfair Display', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--titulo-primaria-dark);
+}
+
+/* ano e descrição alinhados à esquerda, na fonte padrão do site (Inter, do global.css) */
+.universo-filmes p {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #A07A45;
+}
+
+.universo-filmes span {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--elem-secundaria);
+}
+
+/* setas do slide: círculo escuro com o ícone dourado, como o header */
+.seta-slide {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--titulo-primaria-light);
+    border-radius: 50%;
+    background-color: var(--fundo-secundario);
+    color: var(--titulo-primaria-light);
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.seta-slide:hover {
+    background-color: var(--elem-secundaria);
+}
+
+/* em telas menores aparecem menos filmes por vez */
+@media (max-width: 1024px) {
+    .universo-filmes {
+        --filmes-por-tela: 2;
+        --espaco-filmes: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .universo-filmes {
+        --filmes-por-tela: 1;
+    }
+}

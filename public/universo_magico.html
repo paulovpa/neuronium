@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/universo_magico.css">
-    
+
 
 
 </head>
@@ -20,7 +20,7 @@
         <div id="menu_conteudo">
             <div id="logo_nome">
                 <a href="index.html">
-                <h1>Neuronium</h1>
+                    <h1>Neuronium</h1>
                 </a>
             </div>
 
@@ -89,7 +89,7 @@
     </nav>
     <main class="universo">
 
-                <section id="universo" class="secao-tela tom-roxo">
+        <section id="universo" class="secao-tela tom-roxo">
             <div class="secao-conteudo duas-colunas">
                 <div class="coluna-texto">
                     <span class="secao-rotulo">Universo Mágico</span>
@@ -105,24 +105,82 @@
                         um dos maiores poderes de todos os tempos: resistência extrema a magias obscuras.
                         Que no nosso mundo poderia ser traduzido como a resiliência de não perder o controle de si.
                     </p>
-                    <a href="#" class="botao">
-                        Explore o universo mágico
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+
                 </div>
 
                 <!-- os temas citados no texto, em etiquetas -->
                 <div class="painel-quadro">
                     <img width="500px" src="assets/imgs/album/quadro-harry-original.png">
-
-
                 </div>
             </div>
+        </section>
+        <!-- slide dos filmes: as setas passam os filmes (js/universo_filmes.js) -->
+        <section class="filmes-slide">
+            <button id="seta_anterior" class="seta-slide" type="button" aria-label="Filmes anteriores" onclick="passarFilmes(-1)">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div id="carrossel_filmes" class="universo-filmes">
+            <div id="filme-1">
+                <img src="assets/imgs/capas-filmes/hp1.jpg" alt="Capa de Harry Potter e a Pedra Filosofal">
+                <h2>Harry Potter e a Pedra Filosofal</h2>
+                <p>2001</p>
+                <span>Nos Estados Unidos o título virou "Sorcerer's Stone", e as cenas em que a pedra é citada foram gravadas duas vezes. É o filme que apresenta Hogwarts e abre as portas do mundo bruxo.</span>
+            </div>
+            <div id="filme-2">
+                <img src="assets/imgs/capas-filmes/hp2.jpg" alt="Capa de Harry Potter e a Câmara Secreta">
+                <h2>Harry Potter e a Câmara Secreta</h2>
+                <p>2002</p>
+                <span>O elfo Dobby foi o primeiro personagem importante da saga feito inteiramente em computação gráfica. A história começa a revelar os segredos do passado de Hogwarts.</span>
+            </div>
+            <div id="filme-3">
+                <img src="assets/imgs/capas-filmes/hp3.jpg" alt="Capa de Harry Potter e o Prisioneiro de Azkaban">
+                <h2>Harry Potter e o Prisioneiro de Azkaban</h2>
+                <p>2004</p>
+                <span>O diretor Alfonso Cuarón pediu que os atores escrevessem redações sobre seus personagens. O filme marca a virada da saga para um tom mais sombrio e maduro.</span>
+            </div>
+            <div id="filme-4">
+                <img src="assets/imgs/capas-filmes/hp4.jpg" alt="Capa de Harry Potter e o Cálice de Fogo">
+                <h2>Harry Potter e o Cálice de Fogo</h2>
+                <p>2005</p>
+                <span>Foi o primeiro filme da saga dirigido por um britânico, Mike Newell. Com o Torneio Tribruxo, a história deixa de ser só escolar e o perigo passa a ser real.</span>
+            </div>
+            <div id="filme-5">
+                <img src="assets/imgs/capas-filmes/hp5.jpg" alt="Capa de Harry Potter e a Ordem da Fênix">
+                <h2>Harry Potter e a Ordem da Fênix</h2>
+                <p>2007</p>
+                <span>Adapta o livro mais longo da série, mas está entre os filmes mais curtos. Mostra Harry aprendendo a liderar e a ensinar os colegas a se defenderem.</span>
+            </div>
+            <div id="filme-6">
+                <img src="assets/imgs/capas-filmes/hp6.webp" alt="Capa de Harry Potter e o Enigma do Príncipe">
+                <h2>Harry Potter e o Enigma do Príncipe</h2>
+                <p>2009</p>
+                <span>É o único filme da saga indicado ao Oscar de Melhor Fotografia. Aprofunda a origem do grande vilão e prepara o terreno para o desfecho da história.</span>
+            </div>
+            <div id="filme-7">
+                <img src="assets/imgs/capas-filmes/hp7.jpg" alt="Capa de Harry Potter e as Relíquias da Morte: Parte 1">
+                <h2>Harry Potter e as Relíquias da Morte: Parte 1</h2>
+                <p>2010</p>
+                <span>Foi a primeira vez que um livro da saga virou dois filmes, e quase toda a história se passa longe de Hogwarts. Testa a amizade do trio como nunca antes.</span>
+            </div>
+            <div id="filme-8">
+                <img src="assets/imgs/capas-filmes/hp8.jpg" alt="Capa de Harry Potter e as Relíquias da Morte: Parte 2">
+                <h2>Harry Potter e as Relíquias da Morte: Parte 2</h2>
+                <p>2011</p>
+                <span>É a maior bilheteria da saga, com mais de 1,3 bilhão de dólares, e o único lançado em 3D. Encerra a jornada de dez anos que começou na Pedra Filosofal.</span>
+            </div>
+            </div>
+
+            <button id="seta_proxima" class="seta-slide" type="button" aria-label="Próximos filmes" onclick="passarFilmes(1)">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </section>
 
 
 
     </main>
+
+    <script src="js/universo_filmes.js"></script>
 </body>
 
 </html>
