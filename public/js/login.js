@@ -115,7 +115,7 @@ function enviarLogin(email, senha) {
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.EMAIL_USUARIO = json.email;
 
-                    window.location.href = "inicio.html";
+                    window.location.href = "index.html";
                 });
             } else if (resposta.status == 403) {
                 // mensagem genérica: não revela se o erro foi no e-mail ou na senha

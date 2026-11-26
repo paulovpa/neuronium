@@ -1,7 +1,7 @@
 /* =========================================================
    TELAS DE CADASTRO E LOGIN
    Usa as variáveis da paleta definidas em global.css
-   e o header (#menu_principal) definido em index.css.
+   e o header (#menu_principal) definido em header.css.
 
    Para caber na tela sem rolar, os tamanhos verticais usam
    vh (altura da tela) com limites mínimo e máximo (clamp).
@@ -19,7 +19,7 @@
     --fundo-campo: rgba(1, 14, 22, 0.55);
     --arredondamento: 30px;
 
-    /* altura do header do index.css */
+    /* altura do header do header.css */
     --altura-header: 90px;
 
     /* respiro entre o header e o card */

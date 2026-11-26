@@ -1,7 +1,7 @@
 /* =========================================================
    PALÁCIO MENTAL
    Usa as variáveis da paleta definidas em global.css.
-   O header (#menu_principal) e as seções vieram de index.css e inicio.css.
+   O header (#menu_principal) veio de header.css e as seções, de index.css.
    ========================================================= */
 
 :root {
