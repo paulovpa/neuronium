@@ -340,8 +340,9 @@ main.palacio {
 |  SEÇÃO PALÁCIO MENTAL          |
 --------------------------------*/
 
-#palacio img {
+#secao-palacio img {
     width: 600px;
+    max-width: 100%;
 }
 
 /* -----------------------------
