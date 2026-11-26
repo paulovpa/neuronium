@@ -399,50 +399,8 @@ main.inicio {
 |  SEÇÃO 5: DA MAGIA À CIÊNCIA   |
 --------------------------------*/
 
-/* os dois lados da ponte ficam um em cima do outro, ligados pela seta dourada */
-.ponte {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.ponte-lado {
-    width: 100%;
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 32px;
-    border-radius: 20px;
-    font-family: 'Playfair Display', Helvetica, sans-serif;
-    font-style: italic;
-    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
-    color: var(--titulo-secundaria);
-    box-shadow: 0 6px 18px rgba(1, 14, 22, 0.3);
-}
-
-.ponte-lado i {
-    font-size: 32px;
-    color: var(--titulo-primaria-light);
-}
-
-/* cada lado usa um gradiente que já existe no global.css */
-.ponte-magia {
-    background: var(--grad-biblioteca);
-}
-
-.ponte-ciencia {
-    background: var(--grad-reliquias);
-}
-
-/* a seta gira 90° para apontar para baixo, de um lado ao outro */
-.ponte-seta {
-    font-size: 40px;
-    line-height: 1;
-    color: var(--titulo-primaria-light);
-    transform: rotate(90deg);
+#conexao img {
+    width: 700px;
 }
 
 /* -----------------------------
