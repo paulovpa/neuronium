@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Conexão | Neuronium</title>
+    <script src="js/sessao.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/a_conexao.css">
+
+
+    
+
+
+</head>
+
+<body class="pagina-conexao">
+    <!-- header pós-login: o nome leva ao início e os links levam às seções da inicio.html -->
+    <nav id="menu_principal" class="header-logado">
+        <div id="menu_conteudo">
+            <div id="logo_nome">
+                <a href="inicio.html">
+                <h1>Neuronium</h1>
+                </a>
+            </div>
+
+            <ul id="menu_itens">
+                <li class="menu-item">
+                    <a href="universo_magico.html">
+                        <span class="item-descricao">
+                            Universo Mágico
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="neurociencia.html">
+                        <span class="item-descricao">
+                            Neurociência
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#jornada">
+                        <span class="item-descricao">
+                            Jornada
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="a_conexao.html">
+                        <span class="item-descricao">
+                            A Conexão
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="palacio_mental.html">
+                        <span class="item-descricao">
+                            Palácio Mental
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ações à direita do header -->
+        <div id="menu_acesso">
+            <ul>
+                <!-- link provisório: a tela do game ainda será criada -->
+                <li class="menu-item jogar">
+                    <a href="#" title="Em breve">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span class="item-descricao">
+                            Jogar
+                        </span>
+                    </a>
+                </li>
+                <!-- o logout apaga a sessão (js/sessao.js) e volta para a index -->
+                <li class="menu-item sair">
+                    <button id="botao_logout" type="button" onclick="limparSessao()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span class="item-descricao">
+                            Sair
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="conexao">
+
+
+        <!-- SEÇÃO 5: DA MAGIA À CIÊNCIA (link "A Conexão" do header) -->
+        <section id="conexao" class="secao-tela tom-vinho">
+            <div class="secao-conteudo duas-colunas">
+                <img src="assets/imgs/livro-magia-ciencia.png">
+                <div class="coluna-texto">
+                    <span class="secao-rotulo">A Conexão</span>
+                    <h2>Da magia à ciência</h2>
+                    <p>
+                    
+                        Muitos feitiços, poções
+                        e elementos mágicos que eu admirava podem ser metáforas curiosas para processos reais da mente.
+                    </p>
+                    <p>
+                        O Neuronium nasceu com a missão de trazer a
+                        conexão da magia aos conceitos da neurociência, para ajudar outras pessoas, que assim
+                        como eu, querem descobrir a sua magia interna, explorar o poder do seu cérebro e viver
+                        com qualidade.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 6: A CIÊNCIA POR TRÁS DE CADA FEITIÇO -->
+        <section id="feiticos" class="secao-tela">
+            <div class="secao-conteudo">
+                <span class="secao-rotulo">Feitiços e Artefatos</span>
+                <h2>A ciência por trás de cada feitiço e artefato</h2>
+
+                <div class="grade-feiticos">
+                    <!-- cada card: analogia (destaque) → conceito, e a explicação -->
+                    <article class="card-feitico card-habitos">
+                        <img src="assets/imgs/feitico-luna-lovegood.jpg" alt="Luna Lovegood conjurando feitiço">
+                        <h3 class="feitico-analogia">Feitiços repetidos</h3>
+                        <span class="feitico-conceito">→ Hábitos</span>
+                        <p>
+                            Feitiços são conjurações mágicas que um bruxo busca na mente e materializa na realidade.
+                        </p>
+                        <p>
+                            Assim como o bruxo treina o mesmo feitiço até acertar, cada repetição
+                            fortalece as conexões entre neurônios, e o comportamento fica mais automático...
+                        </p>
+                    </article>
+
+                    <article class="card-feitico card-patrono">
+                        <img src="assets/imgs/patronum.jpg" alt="Patrono cervo contra dementadores">
+                        <h3 class="feitico-analogia">Patrono</h3>
+                        <span class="feitico-conceito">→ Regulação emocional</span>
+                        <p>
+                            Patrono é um símbolo de proteção, ele é expressado através do feitiço Expecto Patronum
+                            que materializa um animal encantado usando lembranças felizes para proteger o bruxo
+                            das ameaças de magias obscuras...
+                        </p>
+                    </article>
+
+                    <article class="card-feitico card-penseira">
+                        <img src="assets/imgs/penseira.jpg" alt="Penseira com memórias brilhantes">
+                        <h3 class="feitico-analogia">Penseira</h3>
+                        <span class="feitico-conceito">→ Hipocampo</span>
+                        <p>
+                            A penseira é um objeto mágico, semelhante a uma bacia de pedra rústica com água, que ao
+                            mergulhar o rosto, busca memórias profundas da mente, que ajudam o bruxo a reviver
+                            cenários de eventos da sua vida e ter maior clareza nas suas decisões...
+                        </p>
+                    </article>
+
+
+                </div>
+                    <a href="#" class="botao" id="botao-feitico">
+                        Explore mais detalhes
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
