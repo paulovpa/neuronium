@@ -127,7 +127,7 @@
 
                 <!-- os temas citados no texto, em etiquetas -->
                 <div class="painel-quadro">
-                    <img width="500px" src="assets/imgs/album/quadro-paulo.png">
+                    <img width="500px" src="assets/imgs/album/quadro-harry-original.png">
                     <!-- <span class="secao-rotulo">Temas da saga</span>
                     <ul class="lista-temas">
                         <li>Coragem</li>
@@ -189,7 +189,7 @@
                             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -198,36 +198,43 @@
         <!-- SEÇÃO 4: MINHA JORNADA (prévia) -->
         <section id="jornada" class="secao-tela tom-verde">
             <div class="secao-conteudo">
-                <span class="secao-rotulo">Jornada</span>
-                <h2>Minha Jornada</h2>
-                <p>Do garoto que viu um filme de bruxos na TV ao Neuronium.</p>
+
+                <!-- grade: imagem à esquerda, texto à direita -->
+                <div class="duas-colunas">
+                    <img class="quadro-jornada" src="assets/imgs/album/quadro-paulo.png" alt="Quadro com foto do Paulo">
+
+                    <div class="coluna-texto">
+                        <span class="secao-rotulo">Jornada</span>
+                        <h2>Minha Jornada</h2>
+                        <p>Do garoto que viu um filme de bruxos na TV ao Neuronium.<br>
+                            Descubra de perto de onde veio toda a imaginação para unir dois assuntos que se conectam</p>
+                        <div id="linha-do-tempo">
+                            <ol class="mini-linha-tempo">
+                                <li class="mini-evento">
+                                    <span class="mini-pomo" aria-hidden="true"></span>
+                                    <span class="mini-ano">2007</span>
+                                    <h3>Era uma vez...</h3>
+                                </li>
+                                <li class="mini-evento" id="mini-evento-2">
+                                    <span class="mini-pomo" aria-hidden="true"></span>
+                                    <span class="mini-ano">2008</span>
+                                    <h3>A imaginação</h3>
+                                </li>
+                                <li class="mini-evento" id="mini-evento-3">
+                                    <span class="mini-pomo" aria-hidden="true"></span>
+                                    <span class="mini-ano">2010</span>
+                                    <h3>O dispositivo...</h3>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- prévia reduzida da linha do tempo da minha_jornada.html:
                      a linha dourada é desenhada pelo CSS (.mini-linha-tempo::before) -->
-                <ol class="mini-linha-tempo">
-                    <li class="mini-evento">
-                        <span class="mini-pomo" aria-hidden="true"></span>
-                        <span class="mini-ano">2007</span>
-                        <h3>Era uma vez...</h3>
-                    </li>
-                    <li class="mini-evento">
-                        <span class="mini-pomo" aria-hidden="true"></span>
-                        <span class="mini-ano">2008</span>
-                        <h3>A imaginação tomou conta</h3>
-                    </li>
-                    <li class="mini-evento">
-                        <span class="mini-pomo" aria-hidden="true"></span>
-                        <span class="mini-ano">2024</span>
-                        <h3>O momento difícil</h3>
-                    </li>
-                    <li class="mini-evento">
-                        <span class="mini-pomo" aria-hidden="true"></span>
-                        <span class="mini-ano">2025</span>
-                        <h3>A descoberta da neurociência</h3>
-                    </li>
-                </ol>
 
-                <a href="minha_jornada.html" class="botao">
+
+                <a href="minha_jornada.html" class="botao" id="botao-jornada">
                     Explorar a jornada
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
