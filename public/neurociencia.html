@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurociência | Neuronium</title>
+    <script src="js/sessao.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/neurociencia.css">
+
+
+    
+
+
+</head>
+
+<body class="pagina-neurociencia">
+    <!-- header pós-login: o nome leva ao início e os links levam às seções da inicio.html -->
+    <nav id="menu_principal" class="header-logado">
+        <div id="menu_conteudo">
+            <div id="logo_nome">
+                <a href="inicio.html">
+                <h1>Neuronium</h1>
+                </a>
+            </div>
+
+            <ul id="menu_itens">
+                <li class="menu-item">
+                    <a href="universo_magico.html">
+                        <span class="item-descricao">
+                            Universo Mágico
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="neurociencia.html">
+                        <span class="item-descricao">
+                            Neurociência
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#jornada">
+                        <span class="item-descricao">
+                            Jornada
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="inicio.html#conexao">
+                        <span class="item-descricao">
+                            A Conexão
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="palacio_mental.html">
+                        <span class="item-descricao">
+                            Palácio Mental
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ações à direita do header -->
+        <div id="menu_acesso">
+            <ul>
+                <!-- link provisório: a tela do game ainda será criada -->
+                <li class="menu-item jogar">
+                    <a href="#" title="Em breve">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span class="item-descricao">
+                            Jogar
+                        </span>
+                    </a>
+                </li>
+                <!-- o logout apaga a sessão (js/sessao.js) e volta para a index -->
+                <li class="menu-item sair">
+                    <button id="botao_logout" type="button" onclick="limparSessao()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span class="item-descricao">
+                            Sair
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="neurociencia">
+        <!-- seção 1: os benefícios no dia a dia -->
+        <section id="neurociencia" class="secao-tela tom-roxo">
+            <div class="secao-conteudo">
+                <div class="grade-neuro">
+                    <div class="painel-quadro" id="painel-neurociencia">
+                        <img src="assets/imgs/cerebro-no-papel.png">
+                    </div>
+
+                    <div class="coluna-neuro">
+                        <div class="titulo-neuro">
+                            <span class="secao-rotulo">Neurociência</span>
+                            <h2>Bilhões de neurônios <br> se conversam e criam <br>quem você é</h2>
+                        </div>
+                        <article class="card-neuro">
+                            <p>
+                                Ao acordar, escolher o que comer,
+                                lembrar de um compromisso, estudar ou praticar algum esporte, o cérebro está
+                                trabalhando. <br><br> Conhecer como ele funciona é um primeiro passo para cuidar
+                                melhor dele, lidar com adversidades, promover o sentimento de bem-estar e
+                                alcançar nossos objetivos de vida.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- seção 2: o que é, quando começou e o grande marco -->
+        <section id="pavlov" class="secao-tela tom-roxo">
+            <div class="secao-conteudo">
+
+                <article class="card-neuro" id="card-pavlov">
+                    <!-- texto à esquerda e o quadro de Pavlov à direita -->
+                    <div class="texto-pavlov">
+                        <h2>Ivan Pavlov e o Condicionamento Clássico</h2>
+                        <p>
+                            A neurociência comportamental estuda como o cérebro e o sistema nervoso
+                            se relacionam com o que sentimos, aprendemos e fazemos. Um de seus grandes
+                            marcos veio na década de 1890, quando o fisiologista russo Ivan Pavlov
+                            percebeu que cães passavam a salivar só de ouvir um som que antecedia a
+                            comida: era o condicionamento clássico, a prova de que o cérebro aprende
+                            por associação a sons, imagens e experiências passadas.
+                            O termo "neurociência" se consolidou nos anos 1960.
+                        </p>
+                        <span class="marco-neuro">Década de 1890 · Ivan Pavlov · Condicionamento clássico</span>
+                    </div>
+                    <img class="quadro-pavlov" src="assets/imgs/album/quadro-ivan-pavlov.png" alt="Quadro de Ivan Pavlov">
+                </article>
+
+            </div>
+        </section>
+
+
+
+
+    </main>
+</body>
+
+</html>
