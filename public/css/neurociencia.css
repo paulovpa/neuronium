@@ -326,7 +326,7 @@ main.neurociencia {
 |  SEÇÃO NEUROCIÊNCIA            |
 --------------------------------*/
 
-#neurociencia .secao-conteudo h2 {
+#secao-neuronios .secao-conteudo h2 {
     align-self: flex-end;
     margin-right: 50px;
 }
@@ -396,6 +396,27 @@ main.neurociencia {
     width: 500px;
     max-width: 40%;
     height: auto;
+}
+
+/* seção de Pavlov em fundo claro (bege da marca):
+   os textos passam para os tons escuros da paleta para continuarem legíveis */
+#secao-pavlov {
+    background: var(--fundo-primario);
+    color: var(--titulo-primaria-dark);
+}
+
+#secao-pavlov h2 {
+    color: var(--elem-secundaria);
+}
+
+#secao-pavlov p {
+    color: var(--elem-secundaria);
+}
+
+/* o dourado claro some no bege, então o selo usa um dourado mais escuro */
+#secao-pavlov .marco-neuro {
+    color: #7A5A2E;
+    border-color: rgba(122, 90, 46, 0.5);
 }
 
 #painel-neurociencia {
