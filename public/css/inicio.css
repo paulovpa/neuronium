@@ -413,6 +413,20 @@ main.inicio {
     gap: 24px;
 }
 
+.grade-feiticos img {
+    margin: -32px -32px 0;
+    width: calc(100% + 64px);
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 0.5px solid var(--titulo-primaria-light);
+    border-radius: 20px 20px 0px 0px;
+
+
+}
+
+.card-patrono img {
+    object-position: 50% 25%;
+}
 /* cards em degradê, no estilo das capas de playlist do Spotify */
 .card-feitico {
     display: flex;
@@ -421,6 +435,10 @@ main.inicio {
     padding: 32px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(1, 14, 22, 0.35);
+}
+
+#botao-feitico {
+    align-self: flex-end;
 }
 
 /* cada card usa um degradê que já existe no projeto */
