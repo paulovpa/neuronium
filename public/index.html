@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronium | Início </title>
+    <!-- página pública: o sessao.js não redireciona, só ajusta o header -->
+    <script>var PAGINA_PUBLICA = true;</script>
     <script src="js/sessao.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
@@ -73,8 +75,24 @@
                         </span>
                     </a>
                 </li>
+                <!-- visitante: Entrar e Cadastrar (o js/sessao.js esconde quando há login) -->
+                <li class="menu-item entrar so-visitante">
+                    <a href="login.html">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span class="item-descricao">
+                            Entrar
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item cadastrar so-visitante">
+                    <a href="cadastro.html">
+                        <span class="item-descricao">
+                            Cadastrar
+                        </span>
+                    </a>
+                </li>
                 <!-- o logout apaga a sessão (js/sessao.js) e volta para a index -->
-                <li class="menu-item sair">
+                <li class="menu-item sair so-logado">
                     <button id="botao_logout" type="button" onclick="limparSessao()">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         <span class="item-descricao">

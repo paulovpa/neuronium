@@ -228,3 +228,14 @@ main {
 /* -----------------------
 |  FINAL DO MENU HEADER |
 --------------------------*/
+
+/* -----------------------
+|  ITENS CONFORME O LOGIN  |
+--------------------------*/
+
+/* o js/sessao.js marca o <html> com "visitante" ou "usuario-logado":
+   o visitante não vê o Sair, e quem está logado não vê Entrar/Cadastrar */
+.visitante .so-logado,
+.usuario-logado .so-visitante {
+    display: none;
+}

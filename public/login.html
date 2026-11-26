@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronium | Entrar</title>
+    <!-- página pública: o sessao.js não redireciona, só ajusta o header -->
+    <script>var PAGINA_PUBLICA = true;</script>
+    <script src="js/sessao.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/header.css">
@@ -13,28 +16,68 @@
 
 <body class="pagina-autenticacao">
 
-    <!-- header igual ao do index.html -->
-    <nav id="menu_principal">
+    <!-- header padrão: o nome leva ao início e os links levam às páginas de cada tema -->
+    <nav id="menu_principal" class="header-logado">
         <div id="menu_conteudo">
             <div id="logo_nome">
                 <a href="index.html">
-                <h1>Neuronium</h1>
+                    <h1>Neuronium</h1>
                 </a>
             </div>
 
             <ul id="menu_itens">
                 <li class="menu-item">
-                    <a href="index.html">
+                    <a href="universo_magico.html">
                         <span class="item-descricao">
-                            Início
+                            Universo Mágico
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="neurociencia.html">
+                        <span class="item-descricao">
+                            Neurociência
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="minha_jornada.html">
+                        <span class="item-descricao">
+                            Jornada
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="a_conexao.html">
+                        <span class="item-descricao">
+                            A Conexão
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="palacio_mental.html">
+                        <span class="item-descricao">
+                            Palácio Mental
                         </span>
                     </a>
                 </li>
             </ul>
         </div>
+
+        <!-- ações à direita do header -->
         <div id="menu_acesso">
             <ul>
-                <li class="menu-item entrar active">
+                <!-- link provisório: a tela do game ainda será criada -->
+                <li class="menu-item jogar">
+                    <a href="#" title="Em breve">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span class="item-descricao">
+                            Jogar
+                        </span>
+                    </a>
+                </li>
+                <!-- visitante: Entrar e Cadastrar (o js/sessao.js esconde quando há login) -->
+                <li class="menu-item entrar so-visitante active">
                     <a href="login.html">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         <span class="item-descricao">
@@ -42,17 +85,24 @@
                         </span>
                     </a>
                 </li>
-                <li class="menu-item cadastrar">
+                <li class="menu-item cadastrar so-visitante">
                     <a href="cadastro.html">
                         <span class="item-descricao">
                             Cadastrar
                         </span>
                     </a>
                 </li>
+                <!-- o logout apaga a sessão (js/sessao.js) e volta para a index -->
+                <li class="menu-item sair so-logado">
+                    <button id="botao_logout" type="button" onclick="limparSessao()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span class="item-descricao">
+                            Sair
+                        </span>
+                    </button>
+                </li>
             </ul>
-
         </div>
-
     </nav>
 
     <main class="autenticacao">

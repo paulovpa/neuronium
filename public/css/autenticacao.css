@@ -375,6 +375,12 @@ main.autenticacao {
         display: none;
     }
 
+    /* sem os links do centro, a grade do header padrão (header.css) fica
+       com 2 colunas: logo à esquerda e Jogar/Entrar/Cadastrar à direita */
+    .pagina-autenticacao #menu_principal.header-logado {
+        grid-template-columns: 1fr auto;
+    }
+
     .pagina-autenticacao #menu_principal #menu_acesso {
         position: static;
     }
