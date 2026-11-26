@@ -27,6 +27,9 @@ function estaLogado() {
 
 function validarSessao() {
     if (estaLogado() == false) {
+        // guarda a página pedida para o js/login.js voltar a ela depois do login
+        sessionStorage.PAGINA_DESTINO = window.location.pathname + window.location.search + window.location.hash;
+
         // replace: a página protegida não fica no histórico do botão "voltar"
         window.location.replace(CAMINHO_LOGIN);
         return false;

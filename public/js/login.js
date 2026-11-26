@@ -115,7 +115,17 @@ function enviarLogin(email, senha) {
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.EMAIL_USUARIO = json.email;
 
-                    window.location.href = "index.html";
+                    // volta para a página que a pessoa tentou abrir antes do login
+                    // (guardada pelo js/sessao.js); sem ela, vai para a página inicial
+                    var destino = sessionStorage.PAGINA_DESTINO;
+                    sessionStorage.removeItem("PAGINA_DESTINO");
+
+                    // só aceita caminhos deste site ("/pagina.html"), nunca outro endereço
+                    if (destino == undefined || destino.charAt(0) != "/" || destino.charAt(1) == "/") {
+                        destino = "index.html";
+                    }
+
+                    window.location.href = destino;
                 });
             } else if (resposta.status == 403) {
                 // mensagem genérica: não revela se o erro foi no e-mail ou na senha
