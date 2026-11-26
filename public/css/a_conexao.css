@@ -261,8 +261,8 @@ main.conexao {
     scroll-margin-top: var(--altura-header);
 }
 
-/* tom do topo do painel, tirado dos gradientes do global.css */
-.tom-vinho { background: linear-gradient(180deg, #702D3C 0%, var(--fundo-secundario) 65%); }
+/* tom do topo do painel, igual ao da página universo mágico, para emendar com o header */
+.tom-roxo { background: linear-gradient(180deg, var(--fundo-secundario), #1C2B40 65%); }
 
 /* largura máxima do conteúdo, para o texto não ficar com linhas longas demais */
 .secao-conteudo {
@@ -340,8 +340,9 @@ main.conexao {
 |  SEÇÃO DA MAGIA À CIÊNCIA      |
 --------------------------------*/
 
-#conexao img {
+#secao-conexao img {
     width: 700px;
+    max-width: 100%;
 }
 
 /* -----------------------------
