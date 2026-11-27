@@ -44,6 +44,10 @@
     opacity: 0;
 }
 
+#img_heroi.derrotado {
+    opacity: 0;
+}
+
 
 .barras {
     display: grid;
@@ -182,7 +186,8 @@
     margin-right: 0px;
 }
 
-.feiticos {
+.feiticos_off,
+.feiticos_on {
     position: absolute;
     left: 60px;
     bottom: 20px;
@@ -191,16 +196,21 @@
 
 }
 
-.feiticos > div,
-.feiticos > button {
+.feiticos_off > div,
+.feiticos_off > button,
+.feiticos_on > div,
+.feiticos_on > button {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     cursor: pointer;
 }
 
-.feiticos span,
-.feiticos button {
+
+.feiticos_off span,
+.feiticos_off button,
+.feiticos_on span,
+.feiticos_on button {
     font-family: 'VT323', Arial, Helvetica, sans-serif;
     font-weight: 400;
     text-transform:uppercase;
@@ -208,7 +218,8 @@
     color: white;
 }
 
-.feiticos button {
+.feiticos_off button,
+.feiticos_on button {
     background: none;
     border: none;
     padding: 0;
@@ -217,10 +228,16 @@
 
 }
 
-.feiticos button:hover {
+.feiticos_on button:hover {
     opacity: 1;
 }
 
 #feitico_2 img {
     margin-bottom: 10px;
+}
+
+.feiticos_off {
+    opacity: 0.5;
+    filter: saturate(0);
+    pointer-events: none;
 }

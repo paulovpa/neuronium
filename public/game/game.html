@@ -106,14 +106,14 @@
                         <img width="300" src="../assets/game/heroi.gif" draggable="false">
                     </div>
 
-                    <div class="feiticos">
+                    <div id="feiticos" class="feiticos_on">
 
 
-                            <button id="feitico_1" onclick="usarCafeinus()">
-                                <span>Cafeinus</span>
-                                <img width="100px" src="../assets/game/itens/cafe.webp">
+                        <button id="feitico_1" onclick="usarCafeinus()">
+                            <span>Cafeinus</span>
+                            <img width="100px" src="../assets/game/itens/cafe.webp">
 
-                            </button>
+                        </button>
 
                         <button id="feitico_2" onclick="usarMeditus()">
                             <span>Meditus</span>
@@ -160,6 +160,10 @@
     let listaFeiticoHp = ['25', '25', '25'];
     let listaFeiticoMagia = ['25', '25', '25'];
     let listaFeiticoDano = ['50', '50', '50'];
+
+    let listaFeiticoVilao = ['scrollum infinitus', 'desfocus', 'procrastinus'];
+    let listaFeiticoDanoVilao = ['25', '25', '25'];
+    let listaFeiticoMagiaVilao = ['25', '25', '25'];
 
 
     function verificarHpHeroi() {
@@ -212,15 +216,109 @@
             heroi_magia.innerHTML = `${magiaHeroi}`;
             vilao_hp.innerHTML = `${hpVilao}`;
 
+
             if (hpVilao == 0) {
                 img_vilao.classList.add("derrotado");
 
                 setTimeout(function () {
                     alert('GANHOU');
                 }, 1000);
+            } else {
+
+                desativarFeiticos()
+                setTimeout(function () {
+                    trocaTurnoVilao();
+                }, 1000);
+
+
             }
 
         }
+
+    }
+
+    function desativarFeiticos() {
+        feiticos.className = "feiticos_off"
+
+        feitico_1.disabled = true;
+        feitico_2.disabled = true;
+        feitico_3.disabled = true;
+    }
+
+    function ativarFeiticos() {
+        feiticos.className = "feiticos_on"
+
+        feitico_1.disabled = false;
+        feitico_2.disabled = false;
+        feitico_3.disabled = false;
+    }
+
+    function trocaTurnoVilao() {
+
+        alert('Troca de Turno');
+
+        setTimeout(function () {
+
+            hpHeroi -= listaFeiticoDanoVilao[0]
+            magiaHeroi -= listaFeiticoMagiaVilao[0]
+
+            if (hpHeroi <= 25) {
+                heroi_hp.className = "barra-critica"
+            } else if (hpHeroi <= 50) {
+                heroi_hp.className = "barra-baixa"
+            } else if (hpHeroi <= 75) {
+                heroi_hp.className = "barra-media"
+            } else if (hpHeroi < 100) {
+                heroi_hp.className = "barra-alta"
+            } else {
+                heroi_hp.className = "barra-cheia"
+            }
+
+
+            if (magiaHeroi <= 25) {
+                heroi_magia.className = "barra-critica"
+            } else if (magiaHeroi <= 50) {
+                heroi_magia.className = "barra-baixa"
+            } else if (magiaHeroi <= 75) {
+                heroi_magia.className = "barra-media"
+            } else if (magiaHeroi < 100) {
+                heroi_magia.className = "barra-alta"
+            } else {
+                heroi_magia.className = "barra-cheia"
+            }
+
+
+            if (hpHeroi < 0) {
+                hpHeroi = 0;
+            }
+
+            heroi_hp.innerHTML = `${hpHeroi}`;
+            heroi_magia.innerHTML = `${magiaHeroi}`;
+
+            if (hpHeroi == 0) {
+                img_heroi.classList.add("derrotado");
+
+                setTimeout(function () {
+                    alert('PERDEU');
+                }, 1000);
+            } else {
+
+                setTimeout(function () {
+
+                    alert('SUA VEZ')
+                    ativarFeiticos()
+                }, 1000);
+
+
+            }
+
+        }, 2000);
+
+
+
+    }
+
+    function mostrarResultado() {
 
     }
 </script>
