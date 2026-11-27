@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Pixel&family=VT323&display=swap');
+
+#div_game {
+    width: 1200px;
+    height: 680px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    border: 2px solid var(--elem-primaria);
+    border-radius: 20px;
+    background-image: url('../assets/game/backgrounds/mountain-night.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    gap:50px;
+    position: absolute;
+}
+
+#div_area {
+    padding: 50px;
+}
+
+#img_heroi img {
+    display: block;
+    width: 500px;
+    margin-top: 140px;
+    transform:translate(-10px);
+}
+
+#img_vilao img {
+    width: 400px;
+    margin-top: 150px;
+    transform:translate(10px);
+}
+
+.barras {
+    display: flex;
+    width: 300px;
+    margin-left: 0px;
+}
+
+.barras span {
+    font-family: 'VT323', Arial, Helvetica, sans-serif;
+    font-weight: 1000;
+    font-size: 35px;
+    color: white;
+}
+#vilao-hp.barra-cheia {
+    width:100%;
+    height: 20px;
+    background-color: green;
+}
+
+
+
+#vilao-hp.barra-media {
+    width:50%;
+    height: 20px;
+    background-color: rgb(128, 98, 0);
+}
+
+#vilao-hp.barra-baixa{
+    width:10%;
+    height: 20px;
+    background-color: rgb(145, 44, 44);
+}
+
+
+#heroi-hp.barra-cheia {
+    width:100%;
+    height: 20px;
+    background-color: green;
+}
+
+
+
+#heroi-hp.barra-media {
+    width:50%;
+    height: 20px;
+    background-color: rgb(128, 98, 0);
+}
+
+#heroi-hp.barra-baixa{
+    width:10%;
+    height: 20px;
+    background-color: rgb(145, 44, 44);
+}
+
+
+
+
+.borda-hp {
+    width:500px;
+    height: 24px;
+    align-self: center;
+    margin-left: 10px;
+    border: 2px solid white;;
+}
+
+#vilao .barras {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.feiticos {
+    position: absolute;
+    left: 60px;
+    bottom: 20px;
+    display: flex;
+    gap: 16px;
+}
+
+.feiticos > div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    cursor: pointer;
+}
+
+.feiticos span {
+    font-family: 'VT323', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: white;
+}
+
+#feitico_2 img {
+    margin-bottom: 10px;
+}

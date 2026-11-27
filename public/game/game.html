@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game | Neuronium</title>
+    <script src="../js/sessao.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="./../css/global.css">
+    <link rel="stylesheet" href="./../css/game.css">
+    <!-- <link rel="stylesheet" href="./../css/index.css"> -->
+
+
+
+</head>
+
+<body>
+    <nav id="menu_lateral">
+        <div id="menu_conteudo">
+            <div id="logo_nome">
+                <h1>Neuronium</h1>
+            </div>
+            <div id="usuario">
+                <img src="./../assets/imgs/avatar_01.jpeg" id="usuario_avatar" alt="Avatar">
+
+                <p id="usuario_infos">
+                    <span class="item-descricao">
+                        Paulo
+                    </span>
+                    <span class="item-descricao">
+                        Mago Soberano
+                    </span>
+                </p>
+            </div>
+
+            <ul id="menu_itens">
+                <li class="menu-item">
+                    <a href="../index.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="item-descricao">
+                            Início
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="game.html">
+                        <i class="fa-brands fa-fort-awesome"></i>
+                        <span class="item-descricao">
+                            Mentalis Game
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../dashboard/dashboard.html">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="item-descricao">
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div id="logout">
+            <button id="botao_logout" onclick="limparSessao()">
+                <span>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="item-descricao">
+                        Logout
+                    </span>
+                </span>
+            </button>
+        </div>
+
+    </nav>
+    <main>
+
+
+
+        <div id="div_area">
+
+            <div id="div_game">
+
+
+
+
+                <div id="heroi">
+                    <div class="barras">
+                        <span class="titulo_barra_hp">HP</span>
+                        <div class="borda-hp">
+                            <div id="heroi-hp" class="barra-cheia"></div>
+                        </div>
+
+                    </div>
+
+                    <div id="img_heroi">
+                        <img width="300" src="../assets/game/heroi.gif">
+                    </div>
+
+                    <div class="feiticos">
+
+                        <div id="feitico_1">
+                            <span>Cafeinus</span>
+                            <img width="100px" src="../assets/game/itens/cafe.webp">
+                        </div>
+
+                        <div id="feitico_2">
+                            <span>Meditus</span>
+                            <img width="50px" src="../assets/game/itens/meditus.png">
+                        </div>
+
+                        <div id="feitico_3">
+                            <span>Scrollum</span>
+                            <img width="70px" src="../assets/game/itens/scrollum.png">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="vilao">
+                    <div class="barras">
+                        <span class="titulo_barra_hp">HP</span>
+                        <div class="borda-hp">
+                            <div id="vilao-hp" class="barra-media"></div>
+                        </div>
+
+                    </div>
+
+                    <div id="img_vilao">
+                        <img width="300" src="../assets/game/vilao.gif">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
+<script>
+
+</script>
