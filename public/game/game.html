@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game | Neuronium</title>
     <script src="../js/sessao.js"></script>
+    <script src="../js/game/batalha.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="./../css/global.css">
     <link rel="stylesheet" href="./../css/game.css">
+
     <!-- <link rel="stylesheet" href="./../css/index.css"> -->
 
 
@@ -90,7 +92,12 @@
                     <div class="barras">
                         <span class="titulo_barra_hp">HP</span>
                         <div class="borda-hp">
-                            <div id="heroi-hp" class="barra-cheia"></div>
+                            <div id="heroi_hp" class="barra-cheia">100</div>
+                        </div>
+
+                        <span class="titulo_barra_magia">MAGIA</span>
+                        <div class="borda-magia">
+                            <div id="heroi_magia" class="barra-cheia">100</div>
                         </div>
 
                     </div>
@@ -101,20 +108,22 @@
 
                     <div class="feiticos">
 
-                        <div id="feitico_1">
-                            <span>Cafeinus</span>
-                            <img width="100px" src="../assets/game/itens/cafe.webp">
-                        </div>
 
-                        <div id="feitico_2">
+                            <button id="feitico_1" onclick="usarCafeinus()">
+                                <span>Cafeinus</span>
+                                <img width="100px" src="../assets/game/itens/cafe.webp">
+
+                            </button>
+
+                        <button id="feitico_2" onclick="usarMeditus()">
                             <span>Meditus</span>
                             <img width="50px" src="../assets/game/itens/meditus.png">
-                        </div>
+                        </button>
 
-                        <div id="feitico_3">
+                        <button id="feitico_3" onclick="usarScrollum()">
                             <span>Scrollum</span>
                             <img width="70px" src="../assets/game/itens/scrollum.png">
-                        </div>
+                        </button>
 
                     </div>
                 </div>
@@ -123,7 +132,7 @@
                     <div class="barras">
                         <span class="titulo_barra_hp">HP</span>
                         <div class="borda-hp">
-                            <div id="vilao-hp" class="barra-media"></div>
+                            <div id="vilao_hp" class="barra-cheia">100</div>
                         </div>
 
                     </div>
@@ -142,4 +151,76 @@
 </html>
 <script>
 
+    let hpHeroi = 100;
+    let magiaHeroi = 100;
+
+    let hpVilao = 100;
+
+    let listaFeitico = ['cafeinus', 'meditus', 'scrollum'];
+    let listaFeiticoHp = ['25', '25', '25'];
+    let listaFeiticoMagia = ['25', '25', '25'];
+    let listaFeiticoDano = ['50', '50', '50'];
+
+
+    function verificarHpHeroi() {
+        if (hpHeroi <= 0) {
+            console.log("Herói derrotado");
+        } else if (hpHeroi < 25) {
+            console.log("Herói com a vida crítica");
+        } else if (hpHeroi < 50) {
+            console.log("Herói com a vida baixa");
+        } else if (hpHeroi < 75) {
+            console.log("Herói com a vida média");
+        } else if (hpHeroi < 100) {
+            console.log("Herói com a vida alta");
+        } else {
+            console.log("Herói com a vida cheia");
+        }
+    }
+
+    function usarCafeinus() {
+
+        if (magiaHeroi >= listaFeiticoMagia[0] && hpVilao > 0) {
+            magiaHeroi -= listaFeiticoMagia[0];
+            hpVilao -= listaFeiticoDano[0];
+
+            if (magiaHeroi <= 25) {
+                heroi_magia.className = "barra-critica"
+            } else if (magiaHeroi <= 50) {
+                heroi_magia.className = "barra-baixa"
+            } else if (magiaHeroi <= 75) {
+                heroi_magia.className = "barra-media"
+            } else if (magiaHeroi < 100) {
+                heroi_magia.className = "barra-alta"
+            } else {
+                heroi_magia.className = "barra-cheia"
+            }
+
+
+            if (hpVilao <= 25) {
+                vilao_hp.className = "barra-critica"
+            } else if (hpVilao <= 75) {
+                vilao_hp.className = "barra-media"
+            } else {
+                vilao_hp.className = "barra-cheia"
+            }
+
+            if (hpVilao < 0) {
+                hpVilao = 0;
+            }
+
+            heroi_magia.innerHTML = `${magiaHeroi}`;
+            vilao_hp.innerHTML = `${hpVilao}`;
+
+            if (hpVilao == 0) {
+                img_vilao.classList.add("derrotado");
+
+                setTimeout(function () {
+                    alert('GANHOU');
+                }, 1000);
+            }
+
+        }
+
+    }
 </script>
