@@ -100,6 +100,11 @@
                             <div id="heroi_magia" class="barra-cheia">100</div>
                         </div>
 
+                        <span class="titulo_barra_energia">ENERGIA</span>
+                        <div class="borda-energia">
+                            <div id="heroi_energia" class="barra-cheia">100</div>
+                        </div>
+
                     </div>
 
                     <div id="img_heroi">
@@ -153,12 +158,14 @@
 
     let hpHeroi = 100;
     let magiaHeroi = 100;
+    let energiaHeroi = 100;
 
     let hpVilao = 100;
 
     let listaFeitico = ['cafeinus', 'meditus', 'scrollum'];
     let listaFeiticoHp = ['25', '25', '25'];
     let listaFeiticoMagia = ['25', '25', '25'];
+    let listaFeiticoEnergia = ['25', '25', '25'];
     let listaFeiticoDano = ['50', '50', '50'];
 
     let listaFeiticoVilao = ['scrollum infinitus', 'desfocus', 'procrastinus'];
@@ -185,7 +192,10 @@
     function usarCafeinus() {
 
         if (magiaHeroi >= listaFeiticoMagia[0] && hpVilao > 0) {
+
+
             magiaHeroi -= listaFeiticoMagia[0];
+            energiaHeroi -= listaFeiticoEnergia[0];
             hpVilao -= listaFeiticoDano[0];
 
             if (magiaHeroi <= 25) {
@@ -198,6 +208,18 @@
                 heroi_magia.className = "barra-alta"
             } else {
                 heroi_magia.className = "barra-cheia"
+            }
+
+            if (energiaHeroi <= 25) {
+                heroi_energia.className = "barra-critica"
+            } else if (energiaHeroi <= 50) {
+                heroi_energia.className = "barra-baixa"
+            } else if (energiaHeroi <= 75) {
+                heroi_energia.className = "barra-media"
+            } else if (energiaHeroi < 100) {
+                heroi_energia.className = "barra-alta"
+            } else {
+                heroi_energia.className = "barra-cheia"
             }
 
 
@@ -214,7 +236,9 @@
             }
 
             heroi_magia.innerHTML = `${magiaHeroi}`;
+            heroi_energia.innerHTML = `${energiaHeroi}`;
             vilao_hp.innerHTML = `${hpVilao}`;
+            
 
 
             if (hpVilao == 0) {

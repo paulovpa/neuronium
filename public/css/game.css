@@ -24,7 +24,7 @@
 #img_heroi img {
     display: block;
     width: 500px;
-    margin-top: 140px;
+    margin-top: 90px;
     transform:translate(-10px);
     user-select: none;
 }
@@ -51,9 +51,9 @@
 
 .barras {
     display: grid;
-    grid-template-columns: auto 255px;
+    grid-template-columns: auto 210px;
     column-gap: 10px;
-    row-gap: 8px;
+    row-gap: 1px;
     align-items: center;
     width: max-content;
 
@@ -143,6 +143,7 @@
 }
 
 
+
 #heroi_magia.barra-cheia {
     width:100%;
     height: 20px;
@@ -173,7 +174,37 @@
     background-color: rgb(12, 155, 173);
 }
 
-.borda-hp, .borda-magia {
+#heroi_energia.barra-cheia {
+    width:100%;
+    height: 20px;
+    background-color: rgb(199, 165, 16);
+}
+
+#heroi_energia.barra-alta{
+    width:95%;
+    height: 20px;
+    background-color: rgb(199, 165, 16);
+}
+
+#heroi_energia.barra-media{
+    width:75%;
+    height: 20px;
+    background-color: rgb(199, 165, 16);
+}
+
+#heroi_energia.barra-baixa{
+    width:50%;
+    height: 20px;
+    background-color: rgb(199, 165, 16);
+}
+
+#heroi_energia.barra-critica{
+    width:25%;
+    height: 20px;
+    background-color: rgb(199, 165, 16)
+}
+
+.borda-hp, .borda-magia, .borda-energia {
     width: 100%;
     height: 24px;
     align-self: center;
