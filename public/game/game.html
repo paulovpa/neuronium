@@ -114,7 +114,7 @@
                         <img width="300" src="../assets/game/heroi.gif" draggable="false">
                     </div>
 
-                    <div id="feiticos" class="feiticos_on">
+                    <div id="feiticos" class="feiticos_off">
 
 
                         <button id="feitico_1" onclick="usarCafeinus()">
@@ -145,9 +145,10 @@
 
                     </div>
 
-                    <div id="img_balao">
+                    <div id="img_balao" class="escondido">
                         <div id="balao_texto">Você será derrotado hoje, Potter!</div>
-                        <img src="../assets/game/caixa-dialogo.png">
+                        <img src="../assets/game/caixa-dialogo.png" draggable="false">
+                        <button id="botao_seguinte" onclick="fecharBalao()">VAMOS VER</button>
                     </div>
 
                     <div id="img_vilao">
@@ -248,7 +249,7 @@
             heroi_magia.innerHTML = `${magiaHeroi}`;
             heroi_energia.innerHTML = `${energiaHeroi}`;
             vilao_hp.innerHTML = `${hpVilao}`;
-            
+
 
 
             if (hpVilao == 0) {
@@ -361,8 +362,21 @@
         "Você será derrotado hoje, Potter!"
     ];
 
+
     let intervaloDialogo;
     let dialogoAtual = 0;
+
+
+    function abrirBalao() {
+        img_balao.classList.remove("escondido");
+        digitarBalao();
+    }
+
+    function fecharBalao() {
+        clearInterval(intervaloDialogo);
+        img_balao.classList.add("escondido");
+        ativarFeiticos()
+    }
 
 
     function digitarBalao() {
@@ -374,10 +388,10 @@
 
         intervaloDialogo = setInterval(function () {
 
-            balao_texto.innerHTML += texto[i]; 
+            balao_texto.innerHTML += texto[i];
             i++;
 
-            if(i >= texto.length) {
+            if (i >= texto.length) {
                 clearInterval(intervaloDialogo);
             }
         }, 50)
@@ -392,12 +406,12 @@
             icone_play.alt = "Botão pause";
             jogoRodando = true;
 
+            abrirBalao();
+
         } else {
             icone_play.src = "../assets/game/icons/play.png";
             icone_play.alt = "Botão play";
             jogoRodando = false;
         }
-
-        digitarBalao();
     }
 </script>

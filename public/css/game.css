@@ -272,6 +272,25 @@
     
 }
 
+.escondido {
+    display: none;
+}
+
+#botao_seguinte {
+    position: absolute;
+    padding: 10px;
+    bottom: -10px;
+    left: 30px;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+    background-color: rgb(231, 182, 75);
+    border: 6px solid #c09507;
+    font-family: 'VT323', Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: rgb(253, 253, 253);
+}
+
 .feiticos_off,
 .feiticos_on {
     position: absolute;
