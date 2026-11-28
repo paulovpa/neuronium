@@ -85,6 +85,9 @@
 
             <div id="div_game">
 
+                <button id="botao_play" onclick="alternarPlayPause()">
+                    <img id="icone_play" src="../assets/game/icons/play.png" alt="Botão play" draggable="false">
+                </button>
 
 
 
@@ -381,4 +384,20 @@
 
     }
 
+    let jogoRodando = false;
+
+    function alternarPlayPause() {
+        if (jogoRodando == false) {
+            icone_play.src = "../assets/game/icons/pause.png";
+            icone_play.alt = "Botão pause";
+            jogoRodando = true;
+
+        } else {
+            icone_play.src = "../assets/game/icons/play.png";
+            icone_play.alt = "Botão play";
+            jogoRodando = false;
+        }
+
+        digitarBalao();
+    }
 </script>

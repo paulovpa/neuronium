@@ -21,6 +21,23 @@
     padding: 50px;
 }
 
+#botao_play {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    cursor: pointer;
+    background: none; 
+    border: none; 
+    padding: 0;
+}
+
+#botao_play img {
+    display: block;
+    width: 30px;
+    user-select: none;
+}
+
 #img_heroi img {
     display: block;
     width: 500px;
