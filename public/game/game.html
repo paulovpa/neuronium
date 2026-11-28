@@ -142,6 +142,11 @@
 
                     </div>
 
+                    <div id="img_balao">
+                        <div id="balao_texto">Você será derrotado hoje, Potter!</div>
+                        <img src="../assets/game/caixa-dialogo.png">
+                    </div>
+
                     <div id="img_vilao">
                         <img width="300" src="../assets/game/vilao.gif" draggable="false">
                     </div>
@@ -171,6 +176,8 @@
     let listaFeiticoVilao = ['scrollum infinitus', 'desfocus', 'procrastinus'];
     let listaFeiticoDanoVilao = ['25', '25', '25'];
     let listaFeiticoMagiaVilao = ['25', '25', '25'];
+
+
 
 
     function verificarHpHeroi() {
@@ -345,4 +352,33 @@
     function mostrarResultado() {
 
     }
+
+
+    let listaDialogo = [
+        "Você será derrotado hoje, Potter!"
+    ];
+
+    let intervaloDialogo;
+    let dialogoAtual = 0;
+
+
+    function digitarBalao() {
+        let texto = listaDialogo[0];
+        let i = 0;
+
+        clearInterval(intervaloDialogo);
+        balao_texto.innerHTML = "";
+
+        intervaloDialogo = setInterval(function () {
+
+            balao_texto.innerHTML += texto[i]; 
+            i++;
+
+            if(i >= texto.length) {
+                clearInterval(intervaloDialogo);
+            }
+        }, 50)
+
+    }
+
 </script>
