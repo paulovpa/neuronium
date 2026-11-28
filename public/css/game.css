@@ -21,21 +21,37 @@
     padding: 50px;
 }
 
-#botao_play {
+#tela_inicio_fase {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 2;
-    cursor: pointer;
-    background: none; 
-    border: none; 
-    padding: 0;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius:20px;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
-#botao_play img {
-    display: block;
-    width: 30px;
+#tela_inicio_fase.sumindo {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#botao_play {
+    cursor: pointer;
+    background-color:#c09507; 
+    border:8px solid #a35413;
+    padding: 10px;
     user-select: none;
+}
+
+#botao_play span {
+    font-family: 'VT323', Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    font-weight: 600;
+    color: white;
 }
 
 #img_heroi img {

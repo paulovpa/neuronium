@@ -85,10 +85,11 @@
 
             <div id="div_game">
 
-                <button id="botao_play" onclick="alternarPlayPause()">
-                    <img id="icone_play" src="../assets/game/icons/play.png" alt="Botão play" draggable="false">
-                </button>
-
+                <div id="tela_inicio_fase">
+                    <button id="botao_play" onclick="iniciarFase()">
+                        <span>START</span>
+                    </button>
+                </div>
 
 
                 <div id="heroi">
@@ -182,6 +183,15 @@
     let listaFeiticoMagiaVilao = ['25', '25', '25'];
 
 
+    function iniciarFase() {
+        botao_play.disabled = true;
+        tela_inicio_fase.classList.add("sumindo");
+
+        setTimeout(function () {
+            tela_inicio_fase.classList.add("escondido");
+            abrirBalao()
+        }, 2000)
+    }
 
 
     function verificarHpHeroi() {
@@ -397,22 +407,5 @@
             }
         }, 50)
 
-    }
-
-    let jogoRodando = false;
-
-    function alternarPlayPause() {
-        if (jogoRodando == false) {
-            icone_play.src = "../assets/game/icons/pause.png";
-            icone_play.alt = "Botão pause";
-            jogoRodando = true;
-
-            abrirBalao();
-
-        } else {
-            icone_play.src = "../assets/game/icons/play.png";
-            icone_play.alt = "Botão play";
-            jogoRodando = false;
-        }
     }
 </script>
